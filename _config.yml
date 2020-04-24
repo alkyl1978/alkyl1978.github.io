@@ -7,8 +7,8 @@ title: Записки на память
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: кг
+author: aleks kylikov
+language: ru
 timezone: ''
 
 # URL
@@ -28,7 +28,7 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
-i18n_dir: :lang
+i18n_dir: :ru-ru
 skip_render:
 
 # Writing
