@@ -1,7 +1,7 @@
 ---
-title: lm4f tiva
-date: 2020-07-02 18:30:00
+title: lm4f tiva 
+date: 2020-07-02 18:30:00 
 tags: arm
 ---
 Плата разработки на arm 
-!(images/LM4F120.jpg)
+{% asset_img "lm4f120.jpg" "lm4f120" %}
