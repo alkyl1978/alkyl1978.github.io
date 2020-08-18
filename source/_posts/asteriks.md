@@ -1,4 +1,4 @@
----
+﻿---
 title: asteriks
 date: 2020-05-02 00:09:44
 tags: "астерикс"
@@ -15,4 +15,5 @@ tags: "астерикс"
     cd asterisk-16*/
     contrib/scripts/install_prereq install
     contrib/scripts/get_mp3_source.sh
+
 
