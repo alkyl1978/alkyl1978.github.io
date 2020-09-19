@@ -10,7 +10,7 @@
     "new": "hexo new"
   },
   "hexo": {
-    "version": "4.2.1"
+    "version": "5.2.0"
   },
   "dependencies": {
     "hexo": "^5.2.0",
