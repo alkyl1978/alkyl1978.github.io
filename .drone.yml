@@ -8,8 +8,7 @@ steps:
   commands: 
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
-    - env
-    - node -v
+    - rm -fr bin
 - name: docker  
   image: plugins/docker
   settings:

@@ -1,8 +1,0 @@
-{
-  "name": "blog-site",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "serve public"
-   }
-}
