@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "serve build"
+    "start": "serve public"
    }
 }
