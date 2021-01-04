@@ -15,3 +15,4 @@ RUN npm install --silent --prod
 COPY . ./
 # start app
 CMD ["npm", "run", "start"]
+EXPOSE 5000
