@@ -99,5 +99,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: ssh://node@gist.lp76.site:2207/site/blog.git
+  repo: ssh://git@git.lp76.site:22/aleks/blog.git
   branch: master

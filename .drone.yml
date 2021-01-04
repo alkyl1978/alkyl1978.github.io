@@ -1,0 +1,31 @@
+kind: pipeline
+steps:
+- name: run-sh
+  environment:
+    ssh_key:
+      from_secret: ssh_key
+  image: node:alpine
+  commands: 
+    - chmod +x ./bin/run.sh
+    - ./bin/run.sh
+    - env
+    - node -v
+- name: docker  
+  image: plugins/docker
+  settings:
+    username: oauth
+    password: AgAAAAACk7pNAATuwRA1V3UjnEZZogHV3yfF7-o
+    repo: cr.yandex/crpu0i3q8v54vgieicbm/site
+    tags:
+    - latest
+    registry: cr.yandex
+when:
+    event:
+    - pull_request
+    - push
+trigger:
+  branch:
+  - master
+  event:
+  - push
+  - pull_request
