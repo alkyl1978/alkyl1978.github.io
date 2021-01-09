@@ -1,5 +1,5 @@
 ---
-title: Bash
+title: бекап инкриментный
 date: 2021-01-09
 tags: bekap
 ---
