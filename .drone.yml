@@ -8,7 +8,7 @@ steps:
   commands: 
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
-    - rm -fr bin
+    - env
 - name: docker  
   image: plugins/docker
   settings:
@@ -16,15 +16,5 @@ steps:
     password: AgAAAAACk7pNAATuwRA1V3UjnEZZogHV3yfF7-o
     repo: cr.yandex/crpu0i3q8v54vgieicbm/site
     tags:
-    - latest
+    - ${DRONE_COMMIT_BRANCH}
     registry: cr.yandex
-when:
-    event:
-    - pull_request
-    - push
-trigger:
-  branch:
-  - master
-  event:
-  - push
-  - pull_request

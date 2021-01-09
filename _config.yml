@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://lp76.site
+url: https://blog.lp76.site
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -97,7 +97,7 @@ theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: ssh://git@git.lp76.site:22/aleks/blog.git
-  branch: master
+#deploy:
+#  type: git
+#  repo: ssh://git@git.lp76.site:22/aleks/blog.git
+#  branch: master
