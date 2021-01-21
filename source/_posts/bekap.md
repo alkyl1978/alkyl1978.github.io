@@ -5,47 +5,34 @@ tags: bekap
 ---
 
 Инкрементный бэкап расшаренного каталога.
-
-
 Есть 2 типа админов: те, кто ещё не делают бэкапы, и те, кто уже делают :-) .
-
 Алгоритм работы ниже приведенного скрипта примерно такой. Первого числа каждого месяца делается полный бэкап. При этом предыдущий полный бэкап и дневные бекапы переименовываются добавлением в конец .1 , а еще более старые - удаляются. В остальные дни месяца делается только бэкап изменений, т.е. инкрементный бэкап.
-
-
-
 Скрипт бэкапа:
 
-#!/bin/bash
+```bash
 
+#!/bin/bash
 # имя и расположение программы tar
 TAR=/bin/tar
-
 # Тип архиватора и расширение. Выбрать либо gzip, либо bzip2
 #gzip
 arch_type="--gzip"
 arch_extension=gz
-
 #bzip
 #arch_type="--bzip2"
 #arch_extension=bz2
-
 # pwd - текущий рабочий каталог
 SCRIPT_DIR=`pwd`
-
 # Что бекапим
 DIR_SOURCE="/home/share"
-
 # Лог-файл
 LOG="/var/log/archive.log"
-
 # Где храним бекапы. В данном случае кидаются в монтируемую (см. ниже) расшаренную папку компьютера под виндовс.
 DIR_TARGET_MONTH="/mnt/month"
 DIR_TARGET_DAY="/mnt/day"
-
 #Файлы инкримента
 increment="/mnt/increment.inc"
 increment_day="/mnt/increment_day.inc"
-
 PATH=/usr/local/bin:/usr/bin:/bin
 # текущее число
 DOM=`date +%d`
@@ -60,7 +47,6 @@ $TAR --create --ignore-failed-read --one-file-system --recursion --preserve-perm
 # переименовываем дневные инкрементные бэкапы, старые бекапы удаляем.
 for i in $( find $DIR_TARGET_DAY/ -name "*tar.$arch_extension.1" ); do rm -f $i; done
 for i in $( find $DIR_TARGET_DAY/ -name "*tar.$arch_extension" ); do mv $i $i.1; done
-
 else
 #если не первое число - делаем инкрементные (только изменения) дневные бекапы
 cp $increment $increment_day
@@ -69,6 +55,8 @@ fi
 umount /mnt
 else echo "$(date +%F_%R:%S) Ошибка монтирования шары" >> $LOG
 fi
+
+```
 
 А теперь подробнее о ключах tar, с которыми делается бэкап.
 

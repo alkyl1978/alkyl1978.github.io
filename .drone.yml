@@ -1,9 +1,6 @@
 kind: pipeline
 steps:
 - name: run-sh
-  environment:
-    ssh_key:
-      from_secret: ssh_key
   image: node:alpine
   commands: 
     - chmod +x ./bin/run.sh
