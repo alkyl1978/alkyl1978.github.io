@@ -6,10 +6,11 @@ tags:
 
 Сначала зачем-то тыкнул эту команду (переводим модем в режим с COM портами и ADB интерфейсом):
 
-http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&usb_mode=6
+<http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&usb_mode=6>
 После ввода вот этой команды потерял связь с модемом по CGI:
 
-http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&switchCmd=FACTORY
+<http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&switchCmd=FACTORY>
+
 # dmesg
 
 [    5.663021] usb 1-1.4: new high-speed USB device number 4 using ehci-pci
@@ -25,12 +26,14 @@ http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&switchCmd=FACTORY
 [    5.822373] option 1-1.4:1.0: GSM modem (1-port) converter detected
 [    5.823265] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB0
 
-
 От этих вариантов нет эффекта:
 
 # echo "AT+ZCDRUN=E" > /dev/ttyUSB0
+
 # echo "AT+ZCDRUN=8" > /dev/ttyUSB0
+
 # echo "AT+ZCDRUN=F" > /dev/ttyUSB0
+
 Еще в окошке «Cетевые соединения» удалил соединение по Ethernet, оно же вроде само восстановится?
 
 UPD В соседнем окошке терминала нет ответа:
@@ -54,6 +57,7 @@ AT+ZCDRUN=F
 Потом перегрузил и случилось чудо! :)
 
 # lsusb
+
 Bus 002 Device 005: ID [B]19d2:1403[/B] ZTE WCDMA Technologies MSM
 1403 - Modem mode. RNDIS + Mass Storage Device.
 

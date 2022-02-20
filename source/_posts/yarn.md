@@ -3,7 +3,7 @@ title: yarn
 date: 2020-09-13 16:07:18
 tags: nodejs
 ---
-скачиваем ключ 
+скачиваем ключ
 
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 добавляем репозитарий

@@ -5,12 +5,13 @@ tags: "астерикс"
 ---
 ### Установка Астерикса
 
-Идем на страницу 
-![https://www.asterisk.org/downloads/asterisk/all-asterisk-versions] 
+Идем на страницу
+![https://www.asterisk.org/downloads/asterisk/all-asterisk-versions]
 
 и копируем ссылку на нужную версию. Загружаем ее на сервер.
 
 *выполняем команды
+
 ~~~bash
 cd ~
 wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
@@ -19,4 +20,3 @@ cd asterisk-16*/
 contrib/scripts/install_prereq install
 contrib/scripts/get_mp3_source.sh
 ~~~
-
