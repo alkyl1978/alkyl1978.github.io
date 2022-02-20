@@ -10,7 +10,7 @@ steps:
   image: plugins/docker
   settings:
     username: oauth
-    password: AgAAAAACk7pNAATuwRA1V3UjnEZZogHV3yfF7-o
+    password: AQAAAAACk7pNAATuwbiYaYaJWUORjzlU2iBxw3k
     repo: cr.yandex/crpu0i3q8v54vgieicbm/site
     tags:
     - ${DRONE_COMMIT_BRANCH}
