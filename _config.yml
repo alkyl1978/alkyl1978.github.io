@@ -99,8 +99,10 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: ssh://git@git.lp76.ru:22/aleks/blog.git
-  branch: master
+  repo: https://github.com/alkyl1978/alkyl1978.github.io.git
+  branch: gh-pages
+  token: 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
+
 readmeConfig:
   postsHeader: '## My posts' # headers, support markdown
   sort: 'desc' # posts display sort: 'desc' or 'acs'. The default option is 'desc'
