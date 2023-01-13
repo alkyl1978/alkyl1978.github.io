@@ -97,10 +97,10 @@ theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-#deploy:
-#  type: git
-#  repo: ssh://git@git.lp76.online:22/aleks/blog.git
-#  branch: master
+deploy:
+  type: git
+  repo: ssh://git@git.lp76.ru:22/aleks/blog.git
+  branch: master
 readmeConfig:
   postsHeader: '## My posts' # headers, support markdown
   sort: 'desc' # posts display sort: 'desc' or 'acs'. The default option is 'desc'
