@@ -1,9 +1,10 @@
----
 title: openwrt imagebinder
-date: 2020-08-25 09:43:33
 tags: openwrt
+date: 2020-08-25 09:43:33
 ---
+```
 sudo apt update
+```
 sudo apt full-upgrade
 sudo apt-get install build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
 sudo apt-get clean
