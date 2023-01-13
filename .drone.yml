@@ -29,8 +29,9 @@ steps:
     username: oauth
     password:
          from_secret: docker_plugin_key
-    repo: cr.yandex/crpu0i3q8v54vgieicbm/site
     registry: cr.yandex
+    repo: cr.yandex/crpu0i3q8v54vgieicbm/site
+    tags: latest
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
     environment:
