@@ -27,11 +27,13 @@ steps:
     image: plugins/docker
     settings:
     username: oauth
-    password: AQAAAAACk7pNAATuwbiYaYaJWUORjzlU2iBxw3k
+    password:
+         from_secret: docker_plugin_key
     repo: cr.yandex/crpu0i3q8v54vgieicbm/site
-    tags:
-       - ${DRONE_COMMIT_SHA:0:7}
     registry: cr.yandex
+    tags:
+       - ${DRONE_TARGET_BRANCH}
+       - ${DRONE_COMMIT_SHA:0:7}
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
     environment:
