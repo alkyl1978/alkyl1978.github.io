@@ -1,17 +1,52 @@
 kind: pipeline
 steps:
-- name: run-sh
-  image: node:alpine
-  commands: 
+  - name: restore-cache
+    image: meltwater/drone-cache:dev
+    environment:
+      AWS_ACCESS_KEY_ID:
+        from_secret: aws_acces
+      AWS_SECRET_ACCESS_KEY:
+        from_secret: aws_key
+    pull: true
+    settings:
+      debug: false
+      cache_key: '{{ arch }}_{{ os }}_{{ checksum "package-lock.json" }}'
+      archive_format: "gzip"
+      endpoint: storage.yandexcloud.net 
+      restore: true
+      bucket: drone-cache
+      region: ru-central1
+      mount: 'node_modules'
+  - name: run-sh
+    image: node:alpine
+    commands: 
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
     - env
-- name: docker  
-  image: plugins/docker
-  settings:
+  - name: docker  
+    image: plugins/docker
+    settings:
     username: oauth
     password: AQAAAAACk7pNAATuwbiYaYaJWUORjzlU2iBxw3k
     repo: cr.yandex/crpu0i3q8v54vgieicbm/site
     tags:
-    - ${DRONE_COMMIT_BRANCH}
+       - ${DRONE_TARGET_BRANCH}
+       - ${DRONE_COMMIT_SHA:0:7}
     registry: cr.yandex
+  - name: rebuild-cache
+    image: meltwater/drone-cache:dev
+    environment:
+      AWS_ACCESS_KEY_ID:
+        from_secret: aws_acces
+      AWS_SECRET_ACCESS_KEY:
+        from_secret: aws_key
+    pull: true
+    settings:
+      debug: false
+      cache_key: '{{ arch }}_{{ os }}_{{ checksum "package-lock.json" }}'
+      archive_format: "gzip"
+      endpoint: storage.yandexcloud.net 
+      rebuild: true
+      bucket: drone-cache
+      region: ru-central1
+      mount: 'node_modules'
