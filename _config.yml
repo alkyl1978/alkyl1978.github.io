@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://lp76.ru
+url: https://alkyl1978.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -100,7 +100,7 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/alkyl1978/alkyl1978.github.io.git
-  branch: gh-pages
+  branch: master
   token: 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
 
 readmeConfig:
