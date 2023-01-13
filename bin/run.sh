@@ -1,7 +1,7 @@
 #!/bin/sh
 set -x
 set -e
-npm install
+npm install --only=prod
 npm run clean
 npm run build
 npm run deploy
