@@ -50,3 +50,11 @@ steps:
       bucket: drone-cache
       region: ru-central1
       mount: 'node_modules'
+  - name: telegram
+    image: appleboy/drone-telegram
+    settings:
+      token:
+        from_secret: token_telegramm
+      to: 
+        from_secret: to_telegram_user
+      message: #success {{build.status}}
