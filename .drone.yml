@@ -26,6 +26,10 @@ steps:
         from_secret: token_telegramm
     commands: 
     - chmod +x ./bin/run.sh
+    - mkdir /root/.ssh/
+    - echo $$DEPLOY_KEY > /root/.ssh/id_rsa
+    - chmod 600 /root/.ssh/id_rsa
+    - ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
     - ./bin/run.sh
     - env
   - name: push commit
