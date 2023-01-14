@@ -19,26 +19,22 @@ steps:
       mount: 'node_modules'
   - name: run-sh
     image: node:alpine
+    environment:
+    DEPLOY_KEY:
+      from_secret: ssh_key
     commands: 
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
     - env
-  - name: docker  
-    image: plugins/docker
+  - name: push commit
+    image: appleboy/drone-git-push
     settings:
-      username: oauth
-      password:
-         from_secret: docker_plugin_key
-      repo: cr.yandex/crpu0i3q8v54vgieicbm/site
-      tags:
-       - ${DRONE_TARGET_BRANCH}
-       - ${DRONE_COMMIT_SHA:0:7}
-      registry: cr.yandex
-      use_cache: true
-      when:
-      event:
-      - pull_request
-      - push
+      remote: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
+      remote_name: github
+      branch: master
+      ssh_key:
+        from_secret: ssh_key
+      force: true
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
     environment:
