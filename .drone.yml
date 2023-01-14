@@ -20,8 +20,8 @@ steps:
   - name: run-sh
     image: node:alpine
     environment:
-    DEPLOY_KEY:
-      from_secret: ssh_key
+      DEPLOY_KEY:
+        from_secret: ssh_key
     commands: 
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
