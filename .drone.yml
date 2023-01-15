@@ -18,29 +18,20 @@ steps:
       region: ru-central1
       mount: 'node_modules'
   - name: run-sh
-    image: node:latest
-    environment:
-      DEPLOY_KEY:
-        from_secret: ssh_key
-      telegram: 
-        from_secret: token_telegramm
+    image: node:apline
     commands: 
     - chmod +x ./bin/run.sh
-    - mkdir /root/.ssh/
-    - echo $$DEPLOY_KEY > /root/.ssh/id_rsa
-    - chmod 600 /root/.ssh/id_rsa
-    - ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
     - ./bin/run.sh
     - env
-  - name: push commit
-    image: appleboy/drone-git-push
-    settings:
-      remote: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
-      remote_name: github
-      branch: master
-      ssh_key:
-        from_secret: ssh_key
-      force: true
+#  - name: push commit
+#    image: appleboy/drone-git-push
+#    settings:
+#      remote: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
+#      remote_name: github
+#      branch: master
+#      ssh_key:
+#        from_secret: ssh_key
+#      force: true
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
     environment:

@@ -118,4 +118,4 @@ deploy:
   type: git
   repo: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
-  branch: gh-pages
+  branch: master
