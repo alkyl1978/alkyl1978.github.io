@@ -90,6 +90,16 @@ include:
 exclude:
 ignore:
 
+# Menu-Sidebar
+menu:
+  Home: /
+  Archives: /archives
+  Categories: /categories
+  Tags: /tags
+  Gallery: http://shenyu-vip.lofter.com
+  Travel: /tags/旅行/
+  About: /2019/about
+
 # Hexo-generator-search
 search:
   path: search.xml
