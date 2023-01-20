@@ -1,0 +1,3 @@
+[submodule "themes/ayer"]
+  path = themes/ayer
+  url = ssh://git@git.lp76.ru:22/aleks/hexo-theme-ayer.git
