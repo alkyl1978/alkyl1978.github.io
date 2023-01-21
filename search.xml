@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>умный дом</title>
+    <url>/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/2023/01/15/about/</url>
+    <content><![CDATA[<p>Это страница обо мне.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/01/13/hello-world/</url>
+    <content><![CDATA[<p>привет мир</p>
+]]></content>
+      <tags>
+        <tag>new</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>устранение некоторых ошибок в git</title>
+    <url>/2023/01/13/git_error/</url>
+    <content><![CDATA[<p>Если Выскакивает ошибка</p>
+<pre><code>error: cannot lock ref &#39;refs/remotes/origin/master&#39;: unable to resolve reference &#39;refs/remotes/origin/master&#39;: reference broken
+</code></pre>
+<p>то ее можно удалить командой</p>
+<pre><code>rm .git/refs/remotes/origin/master
+</code></pre>
+<p>а потом обновить реаозиторий</p>
+<pre><code>git fetch
+</code></pre>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>применение aws в яндекс облаке</title>
+    <url>/2021/01/28/aws-yandex/</url>
+    <content><![CDATA[<p>Копирование с локальной машины в облако</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk">aws --endpoint-url=&lt;https:<span class="hljs-regexp">//</span>storage.yandexcloud.net&gt;  s3 cp [File] s3:<span class="hljs-regexp">//</span>[file]<br></code></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>aws</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>бекап инкриментный</title>
+    <url>/2021/01/09/bekap/</url>
+    <content><![CDATA[<p>Инкрементный бэкап расшаренного каталога.<br>Есть 2 типа админов: те, кто ещё не делают бэкапы, и те, кто уже делают :-) .<br>Алгоритм работы ниже приведенного скрипта примерно такой. Первого числа каждого месяца делается полный бэкап. При этом предыдущий полный бэкап и дневные бекапы переименовываются добавлением в конец .1 , а еще более старые - удаляются. В остальные дни месяца делается только бэкап изменений, т.е. инкрементный бэкап.<br>Скрипт бэкапа:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><br><span class="hljs-comment">#!/bin/bash</span><br><span class="hljs-comment"># имя и расположение программы tar</span><br>TAR=/bin/tar<br><span class="hljs-comment"># Тип архиватора и расширение. Выбрать либо gzip, либо bzip2</span><br><span class="hljs-comment">#gzip</span><br>arch_type=<span class="hljs-string">&quot;--gzip&quot;</span><br>arch_extension=gz<br><span class="hljs-comment">#bzip</span><br><span class="hljs-comment">#arch_type=&quot;--bzip2&quot;</span><br><span class="hljs-comment">#arch_extension=bz2</span><br><span class="hljs-comment"># pwd - текущий рабочий каталог</span><br>SCRIPT_DIR=`<span class="hljs-built_in">pwd</span>`<br><span class="hljs-comment"># Что бекапим</span><br>DIR_SOURCE=<span class="hljs-string">&quot;/home/share&quot;</span><br><span class="hljs-comment"># Лог-файл</span><br>LOG=<span class="hljs-string">&quot;/var/log/archive.log&quot;</span><br><span class="hljs-comment"># Где храним бекапы. В данном случае кидаются в монтируемую (см. ниже) расшаренную папку компьютера под виндовс.</span><br>DIR_TARGET_MONTH=<span class="hljs-string">&quot;/mnt/month&quot;</span><br>DIR_TARGET_DAY=<span class="hljs-string">&quot;/mnt/day&quot;</span><br><span class="hljs-comment">#Файлы инкримента</span><br>increment=<span class="hljs-string">&quot;/mnt/increment.inc&quot;</span><br>increment_day=<span class="hljs-string">&quot;/mnt/increment_day.inc&quot;</span><br>PATH=/usr/local/bin:/usr/bin:/bin<br><span class="hljs-comment"># текущее число</span><br>DOM=`<span class="hljs-built_in">date</span> +%d`<br><span class="hljs-comment"># монтируем шару</span><br><span class="hljs-keyword">if</span> smbmount //192.168.2.100/backup /mnt -o username=admin,password=1234<br><span class="hljs-keyword">then</span><br><span class="hljs-keyword">if</span> [ <span class="hljs-variable">$DOM</span> = <span class="hljs-string">&quot;01&quot;</span> ]; <span class="hljs-keyword">then</span><br><span class="hljs-comment"># если первое число - делаем полный бэкап, предварительно переименовав предыдущий месячный бэкап, и удалив его инкремент</span><br><span class="hljs-built_in">mv</span> <span class="hljs-variable">$DIR_TARGET_MONTH</span>/full.tar.<span class="hljs-variable">$arch_extension</span> <span class="hljs-variable">$DIR_TARGET_MONTH</span>/full.tar.<span class="hljs-variable">$arch_extension</span>.1<br><span class="hljs-built_in">rm</span> <span class="hljs-variable">$increment</span><br><span class="hljs-variable">$TAR</span> --create --ignore-failed-read --one-file-system --recursion --preserve-permissions --sparse --listed-incremental=<span class="hljs-variable">$increment</span> <span class="hljs-variable">$arch_type</span> --verbose --file=<span class="hljs-variable">$DIR_TARGET_MONTH</span>/full.tar.<span class="hljs-variable">$arch_extension</span> <span class="hljs-variable">$DIR_SOURCE</span><br><span class="hljs-comment"># переименовываем дневные инкрементные бэкапы, старые бекапы удаляем.</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $( find <span class="hljs-variable">$DIR_TARGET_DAY</span>/ -name <span class="hljs-string">&quot;*tar.<span class="hljs-variable">$arch_extension</span>.1&quot;</span> ); <span class="hljs-keyword">do</span> <span class="hljs-built_in">rm</span> -f <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $( find <span class="hljs-variable">$DIR_TARGET_DAY</span>/ -name <span class="hljs-string">&quot;*tar.<span class="hljs-variable">$arch_extension</span>&quot;</span> ); <span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> <span class="hljs-variable">$i</span> <span class="hljs-variable">$i</span>.1; <span class="hljs-keyword">done</span><br><span class="hljs-keyword">else</span><br><span class="hljs-comment">#если не первое число - делаем инкрементные (только изменения) дневные бекапы</span><br><span class="hljs-built_in">cp</span> <span class="hljs-variable">$increment</span> <span class="hljs-variable">$increment_day</span><br><span class="hljs-variable">$TAR</span> --create --ignore-failed-read --one-file-system --recursion --preserve-permissions --sparse --listed-incremental=<span class="hljs-variable">$increment_day</span> <span class="hljs-variable">$arch_type</span> --verbose --file <span class="hljs-variable">$DIR_TARGET_DAY</span>/day<span class="hljs-variable">$DOM</span>.tar.<span class="hljs-variable">$arch_extension</span> <span class="hljs-variable">$DIR_SOURCE</span><br><span class="hljs-keyword">fi</span><br>umount /mnt<br><span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(date +%F_%R:%S)</span> Ошибка монтирования шары&quot;</span> &gt;&gt; <span class="hljs-variable">$LOG</span><br><span class="hljs-keyword">fi</span><br><br></code></pre></td></tr></table></figure>
+
+<p>А теперь подробнее о ключах tar, с которыми делается бэкап.</p>
+<p>–create - говорит, что мы создаем архив</p>
+<p>–ignore-failed-read - игнорируем файлы, которые не удалось прочитать, вместо останова с ошибкой - бэкап обычно идет автоматически, и лишние сбои бэкапа нам ни к чему.</p>
+<p>–one-file-system - запрещает бэкапу выходить за пределы файловой системы</p>
+<p>–recursion - мы выполняем бэкап всех файлов и каталогов по указанному пути, а также всех файлов и каталогов всех подкаталогов (рекурсия).</p>
+<p>–preserve-permissions - эта опция говорит архиватору, что мы хотим сохранить все права на сохраняемые файлы.</p>
+<p>–sparse - файлы с наличием “пустот” сохраняем именно с указанием мест и длин пустот, а не как файлы с огромным набором нулей.</p>
+<p>–listed-incremental&#x3D;файл_метаданных Суть в следующем:</p>
+<ol>
+<li>Если указанного файла не существует - выполняется полный бэкап, а сам файл - создается и заполняется.</li>
+<li>Если указанный файл существует - выполняется инкрементальный бэкап от момента, определяемого файлом, а сам файл - обновляется.</li>
+</ol>
+<p>–verbose - вывод подробной информации о процессе - если запускаете вручную, а не планировщиком cron.</p>
+<p>–file&#x3D;файл_бэкапа - этот параметр указывает путь к создаваемому файлу бэкапа.</p>
+<p>Восстановление бэкапа.</p>
+<p>Вот команда для развертывания бэкапа:</p>
+<p>&#x2F;bin&#x2F;tar –extract –ignore-failed-read –preserve-permissions –listed-incremental&#x3D;&#x2F;dev&#x2F;null –recursion –sparse –verbose –gzip –file&#x3D;файл_бэкапа –directory&#x3D;путь_для_развертывания</p>
+<p>Сначала восстанавливается полный месячный бэкап, а уже поверх его в туже дирректорию - бэкап нужного дня.</p>
+<p>–extract - говорит о том, что мы разворачиваем архив.</p>
+<p>–directory&#x3D;путь_для_развертывания - путь, куда восстанавливаются файлы. Допустим, мы бэкапили каталог &#x2F;www&#x2F;users. Можно предположить, что при восстановлении надо указать тоже &#x2F;www&#x2F;users. Но дело в том, что в бэкапе сохраняются полные пути без лидирующего слеша (&#x2F;). Т.е. все пути сохранились, как www&#x2F;users&#x2F;*. Поэтому если мы укажем здесь &#x2F;www&#x2F;users - все развернется, как &#x2F;www&#x2F;users&#x2F;www&#x2F;users. В нашем случае достаточно просто указать &#x2F; .</p>
+<p>–listed-incremental&#x3D;&#x2F;dev&#x2F;null - заметьте, как изменился параметр. При восстановлении файл метаданных роли не играет, однако имя файла все равно требуется. Поэтому мы указываем &#x2F;dev&#x2F;null .</p>
+<p>Восстановление одной папки из архива:</p>
+<p>&#x2F;bin&#x2F;tar –extract –ignore-failed-read –preserve-permissions –listed-incremental&#x3D;&#x2F;dev&#x2F;null –recursion –sparse –verbose –gzip –file&#x3D;full.tar.gz –directory&#x3D;&#x2F;mnt&#x2F;10.10.10.22&#x2F;backup&#x2F;10.10.10.4&#x2F;mail&#x2F; home&#x2F;vmail&#x2F;pskovholod.ru&#x2F;zakup_vl&#x2F;</p>
+<p>&#x2F;bin&#x2F;tar –extract –ignore-failed-read –preserve-permissions –listed-incremental&#x3D;&#x2F;dev&#x2F;null –recursion –sparse –verbose –gzip –file&#x3D;day26.tar.gz –directory&#x3D;&#x2F;mnt&#x2F;10.10.10.22&#x2F;backup&#x2F;10.10.10.4&#x2F;mail&#x2F; home&#x2F;vmail&#x2F;pskovholod.ru&#x2F;zakup_vl&#x2F;</p>
+<p>На сервачке с двухядерным процессором и 6Гб оперативной памяти полный бэкап шары в 55 Гб занимает около двух часов, примерно столько же и восстановление.</p>
+]]></content>
+      <tags>
+        <tag>bekap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>yarn</title>
+    <url>/2020/09/13/yarn/</url>
+    <content><![CDATA[<p>скачиваем ключ</p>
+<pre><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+</code></pre>
+<p>добавляем репозитарий</p>
+<pre><code>echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
+</code></pre>
+<p>обновляем репозитарий</p>
+<pre><code>apt-get update
+</code></pre>
+<p>устанавливаем yarn</p>
+<pre><code>apt-get install yarn
+</code></pre>
+]]></content>
+      <tags>
+        <tag>nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>openwrt imagebinder</title>
+    <url>/2020/08/25/openwrt-imagebinder/</url>
+    <content><![CDATA[<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
+<p>sudo apt full-upgrade<br>sudo apt-get install build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python<br>sudo apt-get clean<br>wget <a href="https://downloads.openwrt.org/releases/18.06.5/targets/ramips/rt305x/openwrt-imagebuilder-18.06.5-ramips-rt305x.Linux-x86_64.tar.xz">https://downloads.openwrt.org/releases/18.06.5/targets/ramips/rt305x/openwrt-imagebuilder-18.06.5-ramips-rt305x.Linux-x86_64.tar.xz</a><br>tar -xf openwrt-imagebuilder-18.06.5-ramips-rt305x.Linux-x86_64.tar.xz<br>rm openwrt-imagebuilder-18.06.5-ramips-rt305x.Linux-x86_64.tar.xz<br>cd openwrt-imagebuilder-18.06.5-ramips-rt305x.Linux-x86_64<br>make image PROFILE&#x3D;nbg-419n -j3</p>
+]]></content>
+      <tags>
+        <tag>openwrt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Zyxel kenetic</title>
+    <url>/2020/08/15/Zyxel-kenetic/</url>
+    <content><![CDATA[<p>Положите в папку установленного tftp-сервера<br>(в папку программы-сервера)<br>микропрограмму первого поколения V1.00(XXX.X)D0,<br>предназначенную именно для вашего интернет-центра:</p>
+<p>Для восстановления работоспособности Keenetic 4G ревизии А (Rev.A) скачайте архив с микропрограммой: <a href="https://help.keenetic.net/hc/article_attachments/209440529/Keenetic-4G-V1.00%5BBWO.4.4%5DD0.zip">https://help.keenetic.net/hc/article_attachments/209440529/Keenetic-4G-V1.00%5BBWO.4.4%5DD0.zip</a><br>Для восстановления работоспособности Keenetic 4G ревизии B (Rev.B) скачайте архив с микропрограммой: <a href="https://help.keenetic.net/hc/article_attachments/209440749/Keenetic-4G-V1.00%5BAABV.1.2%5DD0.zip">https://help.keenetic.net/hc/article_attachments/209440749/Keenetic-4G-V1.00%5BAABV.1.2%5DD0.zip</a><br>Отличия интернет-центров Keenetic 4G ревизии A (Rev.A) и Keenetic 4G ревизии B (Rev.B) представлены в статье: «Отличия интернет-центров Keenetic Lite&#x2F;4G ревизии A (Rev.A) от ревизии B (Rev.B)»<br>Распакуйте его и переименуйте bin-файл из архива в файл с именем rt305x_firmware.bin.<br>Подключите компьютер кабелем Ethernet к одному из LAN-портов Keenetic. На сетевом адаптере компьютера установите вручную IP-адрес 192.168.99.8 с маской подсети 255.255.255.0.</p>
+<ol start="3">
+<li><p>Удерживая кнопку RESET в нажатом состоянии, включите питание интернет-центра.</p>
+</li>
+<li><p>Через 5 секунд после включения отпустите кнопку RESET. Keenetic должен получить с tftp-сервера файл с именем rt305x_firmware.bin и записать его в энергонезависимую память.</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>router</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zte modem</title>
+    <url>/2020/08/13/zte-modem/</url>
+    <content><![CDATA[<p>Сначала зачем-то тыкнул эту команду (переводим модем в режим с COM портами и ADB интерфейсом):</p>
+<p><a href="http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6">http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6</a><br>После ввода вот этой команды потерял связь с модемом по CGI:</p>
+<p><a href="http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY">http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY</a></p>
+<h1 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h1><p>[    5.663021] usb 1-1.4: new high-speed USB device number 4 using ehci-pci<br>[    5.797594] usb 1-1.4: New USB device found, idVendor&#x3D;19d2, idProduct&#x3D;0016<br>[    5.797597] usb 1-1.4: New USB device strings: Mfr&#x3D;1, Product&#x3D;2, SerialNumber&#x3D;3<br>[    5.797598] usb 1-1.4: Product: ZTE Wireless Ethernet Adapter<br>[    5.797599] usb 1-1.4: Manufacturer: ZTE,Incorporated<br>[    5.817413] usbcore: registered new interface driver usbserial<br>[    5.817421] usbcore: registered new interface driver usbserial_generic<br>[    5.817426] usbserial: USB Serial support registered for generic<br>[    5.822291] usbcore: registered new interface driver option<br>[    5.822300] usbserial: USB Serial support registered for GSM modem (1-port)<br>[    5.822373] option 1-1.4:1.0: GSM modem (1-port) converter detected<br>[    5.823265] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB0</p>
+<p>От этих вариантов нет эффекта:</p>
+<h1 id="echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><p>Еще в окошке «Cетевые соединения» удалил соединение по Ethernet, оно же вроде само восстановится?</p>
+<p>UPD В соседнем окошке терминала нет ответа:</p>
+<p>sudo cat &#x2F;dev&#x2F;ttyUSB0</p>
+<p>sudo rm &#x2F;dev&#x2F;ttyUSB*<br>sudo modprobe -fr option<br>sudo modprobe -fr usbserial<br>sudo modprobe usbserial vendor&#x3D;0x19d2 product&#x3D;0x0016<br>ls &#x2F;dev&#x2F;ttyUSB*<br>Теперь их три штуки:</p>
+<p>&#x2F;dev&#x2F;ttyUSB0  &#x2F;dev&#x2F;ttyUSB1  &#x2F;dev&#x2F;ttyUSB2<br>Но minicom по прежнему не реагирует, перебрал все.</p>
+<p>Помогло! Хотя ответов в minicom не видел, вслепую набирал AT-команды для каждого ttyUSB*</p>
+<p>AT+ZCDRUN&#x3D;8<br>AT+ZCDRUN&#x3D;F<br>Потом перегрузил и случилось чудо! :)</p>
+<h1 id="lsusb"><a href="#lsusb" class="headerlink" title="lsusb"></a>lsusb</h1><p>Bus 002 Device 005: ID [B]19d2:1403[&#x2F;B] ZTE WCDMA Technologies MSM<br>1403 - Modem mode. RNDIS + Mass Storage Device.</p>
+<p>Вернулся в первоначальное состояние.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ssh</title>
+    <url>/2020/07/30/ssh/</url>
+    <content><![CDATA[<p>Имеем удаленный сервер «host2» с неким приложением, допустим, PostgreSQL server, которое принимает TCP-соединения на порту 5432. При этом вполне логично, что на этом сервере стоит файрвол, который прямых соединений извне на порт 5432 не разрешает, но при этом есть доступ по SSH (по-умолчанию порт 22, рекомендую его изменить). Требуется подключиться с нашего рабочего места «host1» клиентским приложением к серверу PostgreSQL на «host2».</p>
+<p>Для этого на «host1» в консоли набираем:</p>
+<p>host1# ssh -L 9999:localhost:5432 host2</p>
+<p>Теперь на «host1» мы можем соединяться с PostgreSQL сервером через локальный порт 9999:</p>
+<p>host1# psql -h localhost -p 9999 -U postgres</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>kill</title>
+    <url>/2020/07/29/kill/</url>
+    <content><![CDATA[<p>Cпособ узнать PID процесса — это команда pidof, которая принимает в качестве параметра название процесса и выводит его PID. Пример выполнения команды pidof:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">pidof gcalctool<br>25609<br></code></pre></td></tr></table></figure>
+
+<p>Когда известен PID процесса, мы можем убить его командой kill. Команда kill принимает в качестве параметра PID процесса. Например, убьем процесс с номером 25609:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">kill</span> 25609<br>~~~ bash<br>Вообще команда <span class="hljs-built_in">kill</span> предназначена для посылки сигнала процессу. По умолчанию, если мы не указываем какой сигнал посылать, посылается сигнал SIGTERM (от слова termination — завершение). SIGTERM указывает процессу на то, что необходимо завершиться. Каждый сигнал имеет свой номер. SIGTERM имеет номер 15. Список всех сигналов (и их номеров), которые может послать команда <span class="hljs-built_in">kill</span>, можно вывести, выполнив <span class="hljs-built_in">kill</span> -l. Чтобы послать сигнал SIGKILL (он имеет номер 9) процессу 25609, выполните в командой строке:<br>~~~bash<br><span class="hljs-built_in">kill</span> -9 25609<br></code></pre></td></tr></table></figure>
+
+<p>Сигнал SIGTERM может и не остановить процесс (например, при перехвате или блокировке сигнала), SIGKILL же выполняет уничтожение процесса всегда, так как его нельзя перехватить или проигнорировать.</p>
+]]></content>
+      <tags>
+        <tag>utils, debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nvm</title>
+    <url>/2020/07/07/nvm/</url>
+    <content><![CDATA[<p>Как установить и управлять NodeJS с помощью NVM</p>
+<p>NVM, также известный как Node Version Manager, это аналог RVM (Ruby Version manager) для языка Ruby. NVM позволяет устанавливать и управлять множеством версий NodeJS в рамках одной системы, а также использовать определенную версию для приложения.</p>
+<p>В этой статье я расскажу как установить и управлять NodeJS с помощью NVM.</p>
+<p>По умолчанию NVM устанавливается в домашнюю директорию текущего пользователя. поэтому установленные версии nodejs с помощью nvm одного пользователя будут недоступны другим пользователям. Пользователи Windows могут прочитать как установить NodeJS в Windows системах.<br>Шаг 1 - Установка NVM</p>
+<p>Сначала вы должны установить NVM в систему. Разработчики NVM подготовили для этого Bash скрипт-установщик. Используйте эту,чтобы установитьNVM:</p>
+<pre><code>curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+</code></pre>
+<p>После чего надо обновить системные переменные с помощью команд ниже, иначе потребуется перезапуск сеанса (или переподключение по SSH).</p>
+<pre><code>source ~/.profile ## Для Debian/Ubuntu и подобных
+source ~/.bashrc ## Для CentOS/RHEL 
+</code></pre>
+<p>Шаг 2 - Список доступных версий NodeJS</p>
+<p>Теперь, когда вы установили nvm, вы можете использовать его. Но для начала нужно установить какую-либо версию NodeJS. С помощью опции ls-remote вы можете просмотреть список доступных версий</p>
+<pre><code>nvm ls-remote
+</code></pre>
+<p>В результате вы увидите длинный список доступных версий.</p>
+<pre><code>...
+...
+v10.16.1 (LTS: Dubnium)
+v10.16.2 (LTS: Dubnium)
+v10.16.3 (Latest LTS: Dubnium)
+...
+...
+v12.10.0
+v12.11.0
+v12.11.1
+v12.12.0
+</code></pre>
+<p>Шаг 3 - Установка NodeJS с помощью NVM</p>
+<p>Выберите версию из списка выше, которая вам нужна и установите ее. В этом примере я буду использовать LTS версию v10.16.3:</p>
+<pre><code>nvm install v10.16.3
+</code></pre>
+<p>И дополнительно установлю актуальную версию</p>
+<pre><code>nvm install v12.12.0
+</code></pre>
+<p>Повторяя команду с нужными версиями установите все необходимые вам версии NodeJS.<br>Шаг 4 - Установка версии по умолчанию</p>
+<p>После того, как вы установите несколько версий, вы должны выбрать какая версия будет использоваться по умолчанию (для вариантов, когда нет четкого указания на нужную версию). С помощью команды ниже вы можете проверить список установленных версий и какая из них указана как версия по умолчанию.</p>
+<pre><code>nvm list
+
+-&gt; v10.16.3
+v12.8.0
+system
+default -&gt; v12.8.0
+node -&gt; stable (-&gt; v12.12.0) (default)
+stable -&gt; 12.8 (-&gt; v12.12.0) (default)
+iojs -&gt; N/A (default)
+unstable -&gt; N/A (default)
+lts/* -&gt; lts/dubnium (-&gt; v10.16.3)
+lts/argon -&gt; v4.9.1 (-&gt; N/A)
+lts/boron -&gt; v6.17.1 (-&gt; N/A)
+lts/carbon -&gt; v8.16.0 (-&gt; N/A)
+lts/dubnium -&gt; v10.16.3
+</code></pre>
+<p>Как вы можете видеть - версией по умолчанию установлена v10.16.3. Вы можете изменить ее на другую используя следующую команду(я изменю на 10.16.2).</p>
+<pre><code>nvm use v10.16.2
+</code></pre>
+<p>Проверим текущую версию NodeJS</p>
+<pre><code>node --version
+
+v10.16.2
+</code></pre>
+<p>Шаг 5 - Запуск приложения с определенной версией NodeJS</p>
+<p>Когда у вас много приложений и вы хотите для каждого из них указать свою определенную версию, то вы можете использовать следующую команду nvm, к примеру запуск приложения app.js в версии 10.16.3</p>
+<pre><code>nvm run v10.16.3 app.js
+</code></pre>
+<p>Шаг 6 - Удаление неиспользуемых версий NodeJS</p>
+<p>Просмотрите список установленных версий командой</p>
+<pre><code>nvm list
+</code></pre>
+<p>И удалите ненужные вам версии с помощью команды ниже. К примеру я удалю версию 10.16.3</p>
+<pre><code>nvm uninstall v10.16.3
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>rs-local</title>
+    <url>/2020/07/07/rs-local/</url>
+    <content><![CDATA[<p>В последних версиях Debian выпилили файл rc.local, который позволяет выполнять произвольные скрипты при запуске системы.<br>Данное решение очень удобно, поэтому запилим его обратно.</p>
+<p>Создадим файл сервиса:</p>
+<pre><code>sudo nano /etc/systemd/system/rc-local.service
+</code></pre>
+<p>Со следующим содержимым:</p>
+<pre><code>[Unit]
+Description=/etc/rc.local
+ConditionPathExists=/etc/rc.local
+
+[Service]
+Type=forking
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99 
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Создадим сам rc.local:</p>
+<pre><code>sudo nano /etc/rc.local
+
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will &quot;exit 0&quot; on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+exit 0
+</code></pre>
+<p>Добавим права на выполнение:</p>
+<pre><code>sudo chmod +x /etc/rc.local
+</code></pre>
+<p>Добавим сервис в автозапуск:</p>
+<pre><code>sudo systemctl enable rc-local
+</code></pre>
+<p>Запускаем сервис:</p>
+<pre><code>sudo systemctl start rc-local
+</code></pre>
+<p>Смотрим состояние сервиса:</p>
+<pre><code>sudo systemctl status rc-local
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>lm4f tiva</title>
+    <url>/2020/07/02/lm4f-tiva/</url>
+    <content><![CDATA[<p>Плата разработки на arm</p>
+
+]]></content>
+      <tags>
+        <tag>arm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>platformio</title>
+    <url>/2020/07/02/platformio/</url>
+    <content><![CDATA[<p>скачиваем установочный файл</p>
+<pre><code>curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py
+</code></pre>
+<p>запускаем установку</p>
+<pre><code>python3 get-platformio.py
+</code></pre>
+<p>добавляем в PATH файл ~&#x2F;.bashrc  строку</p>
+<pre><code>export PATH=$PATH:~/.platformio/penv/bin
+</code></pre>
+]]></content>
+      <tags>
+        <tag>среда разработки arm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>libopencm3</title>
+    <url>/2020/07/02/libopencm3/</url>
+    <content><![CDATA[<p>[Ссылка на официальный сайт]<a href="http://libopencm3.org/docs/latest/html/">http://libopencm3.org/docs/latest/html/</a>)<br><a href="https://github.com/libopencm3/libopencm3">Ссылка на репозитарий</a></p>
+]]></content>
+      <tags>
+        <tag>arm libopencm3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESP8266</title>
+    <url>/2020/06/10/ESP8266/</url>
+    <content><![CDATA[<h3 id="Внешний-вид-платы-esp8266"><a href="#Внешний-вид-платы-esp8266" class="headerlink" title="Внешний вид платы esp8266"></a>Внешний вид платы esp8266</h3><img src="/2020/06/10/ESP8266/nodemcu-esp8266.jpg" class="" title="esp8266">
+]]></content>
+      <tags>
+        <tag>ESP8266</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Создание архива tar</title>
+    <url>/2020/06/10/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D0%B0-tar/</url>
+    <content><![CDATA[<p>Архиватор Tar в Linux.<br>Архив tar может быть сжат в gzip. Формат тогда будет выглядеть так - tar.gz</p>
+<p>Как создать архив tar в FreeBSD:</p>
+<pre><code>tar -cvf archive.tar /var/db/mysql/*
+</code></pre>
+<p>c — create - создание архива<br>v — verbose - выдача доп. сообщений при создании архива<br>f — создать файл на диске<br>&#x2F;var&#x2F;db&#x2F;mysql&#x2F;* - архивируемые файлы через пробел.</p>
+<p> Как сжать содержимое архива tar?</p>
+<pre><code>tar -cvzf archive.tar.gz /var/db/mysql/*
+</code></pre>
+<p>Содержимое архива будет сжато при помощи gzip</p>
+<p>Как извлечь содержимое архива tar в текущую папку?</p>
+<pre><code>tar -xf archive.tar - извлечь обычный архив tar в текущую директорию
+
+tar -xzf archive.tar.gz - извлечь сжатый архив tar в текущую директорию
+</code></pre>
+<p>Как извлечь содержимое архива tar в указанную папку?</p>
+<pre><code>tar -xf archive.tar -C /home/data - извлечь обычный архив tar в директорию /home/data
+
+tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив tar в директорию /home/data
+</code></pre>
+<p>Как исключить файл или папку при архивировании или создании архива tar?<br>Для исключения файлов или папки используется опция –exclude</p>
+<pre><code>tar --exclude=&#39;/home/user/*&#39; -cvzf archive.tar.gz /home/*
+</code></pre>
+<p>В этом примере архивируем всю директорию &#x2F;home , но исключаем из архива папку &#x2F;home&#x2F;user</p>
+]]></content>
+      <tags>
+        <tag>tar,debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bash</title>
+    <url>/2020/05/02/Bash/</url>
+    <content><![CDATA[<p>Bash пример</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>asteriks</title>
+    <url>/2020/05/02/asteriks/</url>
+    <content><![CDATA[<h3 id="Установка-Астерикса"><a href="#Установка-Астерикса" class="headerlink" title="Установка Астерикса"></a>Установка Астерикса</h3><p>Идем на страницу<br>![<a href="https://www.asterisk.org/downloads/asterisk/all-asterisk-versions]">https://www.asterisk.org/downloads/asterisk/all-asterisk-versions]</a></p>
+<p>и копируем ссылку на нужную версию. Загружаем ее на сервер.</p>
+<p>*выполняем команды</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~<br>wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz<br>tar xfz asterisk-16-current.tar.gz<br><span class="hljs-built_in">cd</span> asterisk-16*/<br>contrib/scripts/install_prereq install<br>contrib/scripts/get_mp3_source.sh<br></code></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>астерикс</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Изменения владельца файлов в debian</title>
+    <url>/2020/04/24/debian/</url>
+    <content><![CDATA[<h3 id="Изменения-владельца-файлов-в-debian"><a href="#Изменения-владельца-файлов-в-debian" class="headerlink" title="Изменения владельца файлов в debian"></a>Изменения владельца файлов в debian</h3><p>Для того, чтобы сменить пользователя и&#x2F;или<br>группу у файла и&#x2F;или папки в linux применяется команда chown.<br>Как обычно, первым делом заглянем в подсказку операционной системы по этой команде:</p>
+]]></content>
+      <tags>
+        <tag>debian</tag>
+      </tags>
+  </entry>
+</search>
