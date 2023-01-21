@@ -18,20 +18,20 @@ steps:
       region: ru-central1
       mount: 'node_modules'
   - name: run-sh
-    image: node:apline
+    image: node:alpine
     commands: 
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
     - env
-#  - name: push commit
-#    image: appleboy/drone-git-push
-#    settings:
-#      remote: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
-#      remote_name: github
-#      branch: master
-#      ssh_key:
-#        from_secret: ssh_key
-#      force: true
+  - name: push commit
+    image: appleboy/drone-git-push
+    settings:
+      remote: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
+      remote_name: github
+      branch: master
+      ssh_key:
+        from_secret: ssh_key
+      force: true
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
     environment:
