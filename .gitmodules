@@ -1,3 +1,4 @@
 [submodule "themes/ayer"]
   path = themes/ayer
   url = https://github.com/alkyl1978/hexo-theme-ayer.git
+  branch = master
