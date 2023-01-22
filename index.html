@@ -155,6 +155,128 @@
     
     
     <article
+  id="post-install-goland"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/01/22/install-goland/"
+    >install goland</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/01/22/install-goland/" class="article-date">
+  <time datetime="2023-01-22T18:04:33.000Z" itemprop="datePublished">2023-01-22</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h4 id="Как-установить-Go-на-Debian-10"><a href="#Как-установить-Go-на-Debian-10" class="headerlink" title="Как установить Go на Debian 10"></a>Как установить Go на Debian 10</h4><p>Go, также известный как Golang, является современным языком программирования с открытым исходным кодом, созданным Google. Go стремится к надежному, быстрому и понятному процессу разработки, помогая создавать безопасное и эффективное программное обеспечение.</p>
+<p><strong>Содержание статьи</strong></p>
+<ol>
+<li>Скачать Go на Debian 10</li>
+<li>Установка Go на Debian 10</li>
+<li>Настройка GOPATH на Debian 10</li>
+</ol>
+<p>Тестирование правильности установки Golang<br>В данном руководстве будет показано, как скачать и установить Go, а также скомпилировать и выполнить программу “Hello, World!” на сервере используя ОС Debian 10. Для использования данного руководства у вас должен быть доступ к серверу Debian 10, настроенной для пользователя с привилегиями sudo.</p>
+<p><strong>Скачать Go на Debian 10</strong></p>
+<p>На данном этапе мы установим Go на сервер.<br>Для начала убедитесь, что apt обновлен, использовав следующую команду:</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
+<p>Теперь установите curl, чтобы можно было получить последний релиз Go:</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">sudo apt <span class="hljs-keyword">install</span> curl<br></code></pre></td></tr></table></figure>
+<p>Затем перейдите на официальную страницу скачивания Go и найдите URL для текущего бинарного релиза тарбола. Скопируйте ссылку для последней версии, что совместима с 64-битной архитектурой.</p>
+<p>Из домашней директории используйте curl для получения тарбола:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -O https:<span class="hljs-regexp">//</span>dl.google.com<span class="hljs-regexp">/go/g</span>o1.<span class="hljs-number">15</span>.linux-amd64.tar.gz<br></code></pre></td></tr></table></figure>
+<p>Хотя тарбол получен из подлинного источника, лучше все-таки проверять аутентичность и целостность объектов, скачанных из Интернета. Через метод проверки можно доказать, что файл не был изменен или поврежден во время процесса загрузки. Команда sha256sum выводит уникальный 256-битный хеш:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sha256sum go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
+<p>Вывод:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span><br><span class="hljs-number">2</span>d75848ac606061efe52a8068d0e647b35ce487a15bb52272c427df485193602  go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
+<p>Сравните хеш в выводе со значением контрольной суммы на странице скачивания Go. Если они совпадают, тогда можно считать, что загрузка действительна.</p>
+<p>После скачивания Go и проверки целостности файла можно приступить к процессу установки.</p>
+<h6 id="Установка-Go-на-Debian-10"><a href="#Установка-Go-на-Debian-10" class="headerlink" title="Установка Go на Debian 10"></a>Установка Go на Debian 10</h6><p>Теперь используем tar для извлечения тарбола. Следующие флаги используются для указания tar, как извлекать, просматривать и оперировать над скачанным тарболом:</p>
+<p>Флаг x говорит, что мы хотим извлечь файлы из тарбола;<br>Флаг v указывает, что нам нужен подробный вывод, что включает список извлеченных файлов;<br>Флаг f говорит tar, что мы уточняем название файла, над которым будут проводиться операции.<br>Теперь используем все вышесказанное и запустим команду для извлечения пакета:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">tar xvf go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
+<p>Теперь у вас есть директория под названием go в домашнем каталоге. Рекурсивно изменим владельца и группу данной директории на root, и переместим её в &#x2F;usr&#x2F;local:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R root:root ./go<br>sudo <span class="hljs-built_in">mv</span> go /usr/local<br></code></pre></td></tr></table></figure>
+<p>На заметку: </p>
+<blockquote>
+<p>Хотя рекомендуется использовать локацию &#x2F;usr&#x2F;local&#x2F;go, некоторые пользователи выбирают место по своему усмотрению.</p>
+</blockquote>
+<p>На данный момент использование Go потребует уточнение полного пути к его локации установки в командной строке. Для создания более удобной интеграции Go с пользователями установим несколько путей.</p>
+<h6 id="Настройка-GOPATH-в-Debian-10"><a href="#Настройка-GOPATH-в-Debian-10" class="headerlink" title="Настройка GOPATH в Debian 10"></a>Настройка GOPATH в Debian 10</h6><p>На данной этапе мы настроим несколько путей в среде.<br>Для начала настроим корневое значение, что указывает Go, на то где искать файлы:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nano ~/.profile<br></code></pre></td></tr></table></figure>
+<p>В конец файла добавим следующие строки:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">export <span class="hljs-title class_">GOPATH</span>=<span class="hljs-variable">$HOME</span>/work<br>export <span class="hljs-title class_">PATH</span>=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/usr/local/go/bin</span><span class="hljs-symbol">:</span><span class="hljs-variable">$GOPATH</span>/bin<br></code></pre></td></tr></table></figure>
+<p>Если вы выбрали другое место для установки Go, тогда вместо вышеуказанных путей добавьте следующие строчки в файл. В данном примере мы добавляем строчки, что могут потребоваться, если вы установили Go в домашнюю директорию.</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">GOROOT</span>=<span class="hljs-variable">$HOME</span>/go<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">GOPATH</span>=<span class="hljs-variable">$HOME</span>/work<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$PATH</span>:$GOROOT/bin:$GOPATH/bin<br></code></pre></td></tr></table></figure>
+<p>Вставьте подходящие строчки в ваш профиль, сохраните и закройте файл.</p>
+<p>Затем обновите профиль, запустив:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.profile<br></code></pre></td></tr></table></figure>
+<p>Установив Go и настроив пути среды, давайте подтвердим, что все работаем должным образом через небольшую программу.</p>
+<p>Тестирование правильности установки Go на Debian 10<br>Теперь, когда Go установлен, а пути для сервера настроены, надо убедиться, что Go работает правильно.</p>
+<p>Создадим директорию для рабочего пространства Go, куда будут помещаться созданные файлы:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$HOME</span>/work<br></code></pre></td></tr></table></figure>
+<p>Затем создадим директорию в данной папке для тестового файла. Используем директорию my_project в качестве примера:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkdir -p work<span class="hljs-regexp">/src/my</span>_project/hello<br></code></pre></td></tr></table></figure>
+<p>Затем создадим традиционный файл «Hello World»:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">nano ~<span class="hljs-regexp">/work/</span>src<span class="hljs-regexp">/my_project/</span>hello/hello.go<br></code></pre></td></tr></table></figure>
+<p>Через текстовый редактор добавим следующий код в файл, что использует главные пакеты Go, импортиртирует форматированный компонент содержимого I&#x2F;O и настраивает новую функцию для вывода «Hello, World!», после чего запускаем:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">nano ~<span class="hljs-regexp">/work/</span>src<span class="hljs-regexp">/my_project/</span>hello/hello.go<br></code></pre></td></tr></table></figure>
+<p>добавляем следующий код<br><code></p>
+<p>package main</p>
+<p>import "fmt"</p>
+<p>func main()<br>&#123;<br>   fmt.Printf("Hello, World!\n")<br>&#125;</p>
+</code>
+После запуска программы будет выводиться результат Hello, World!, тем самым доказывая, что Go-программы компилируются должным образом.
+
+<p>Сохраните файл, затем скомпилируйте его, вызвав команду go install:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">go install my_project/hello<br></code></pre></td></tr></table></figure>
+<p>Скомпилируемую программу вы можете запустить через следующую команду:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./hello<br></code></pre></td></tr></table></figure>
+<p>Go успешно установлен и функционален, если вы увидите следующий вывод:</p>
+<blockquote>
+<p>Hello, World!</p>
+</blockquote>
+<p>Вы можете определить, где скомпилированный бинарный hello установлен, используя команду which:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">which</span> hello<br></code></pre></td></tr></table></figure>
+<p>Вывод:</p>
+<blockquote>
+<p>/home/sammy/work/bin/hello</p>
+</blockquote>
+<p>Программа “Hello, World!” показывает, что теперь у вас есть среда разработки.</p>
+<p><strong>Заключение</strong></p>
+<p>Загрузив и установив последнюю версию Go и настроив его пути, вы можете начать программирование на Go. Чтобы узнать больше о работе с Go, ознакомьтесь с серией статей Курс изучения Golang для начинающих. Вы также можете изучить официальную документацию Go.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-умный-дом"
   class="article article-type-post"
   itemscope
@@ -648,67 +770,6 @@
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/router/" rel="tag">router</a></li></ul>
 
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-zte-modem"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/08/13/zte-modem/"
-    >zte modem</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/08/13/zte-modem/" class="article-date">
-  <time datetime="2020-08-13T20:59:13.000Z" itemprop="datePublished">2020-08-13</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Сначала зачем-то тыкнул эту команду (переводим модем в режим с COM портами и ADB интерфейсом):</p>
-<p><a target="_blank" rel="noopener" href="http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6">http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6</a><br>После ввода вот этой команды потерял связь с модемом по CGI:</p>
-<p><a target="_blank" rel="noopener" href="http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY">http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY</a></p>
-<h1 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h1><p>[    5.663021] usb 1-1.4: new high-speed USB device number 4 using ehci-pci<br>[    5.797594] usb 1-1.4: New USB device found, idVendor&#x3D;19d2, idProduct&#x3D;0016<br>[    5.797597] usb 1-1.4: New USB device strings: Mfr&#x3D;1, Product&#x3D;2, SerialNumber&#x3D;3<br>[    5.797598] usb 1-1.4: Product: ZTE Wireless Ethernet Adapter<br>[    5.797599] usb 1-1.4: Manufacturer: ZTE,Incorporated<br>[    5.817413] usbcore: registered new interface driver usbserial<br>[    5.817421] usbcore: registered new interface driver usbserial_generic<br>[    5.817426] usbserial: USB Serial support registered for generic<br>[    5.822291] usbcore: registered new interface driver option<br>[    5.822300] usbserial: USB Serial support registered for GSM modem (1-port)<br>[    5.822373] option 1-1.4:1.0: GSM modem (1-port) converter detected<br>[    5.823265] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB0</p>
-<p>От этих вариантов нет эффекта:</p>
-<h1 id="echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><p>Еще в окошке «Cетевые соединения» удалил соединение по Ethernet, оно же вроде само восстановится?</p>
-<p>UPD В соседнем окошке терминала нет ответа:</p>
-<p>sudo cat &#x2F;dev&#x2F;ttyUSB0</p>
-<p>sudo rm &#x2F;dev&#x2F;ttyUSB*<br>sudo modprobe -fr option<br>sudo modprobe -fr usbserial<br>sudo modprobe usbserial vendor&#x3D;0x19d2 product&#x3D;0x0016<br>ls &#x2F;dev&#x2F;ttyUSB*<br>Теперь их три штуки:</p>
-<p>&#x2F;dev&#x2F;ttyUSB0  &#x2F;dev&#x2F;ttyUSB1  &#x2F;dev&#x2F;ttyUSB2<br>Но minicom по прежнему не реагирует, перебрал все.</p>
-<p>Помогло! Хотя ответов в minicom не видел, вслепую набирал AT-команды для каждого ttyUSB*</p>
-<p>AT+ZCDRUN&#x3D;8<br>AT+ZCDRUN&#x3D;F<br>Потом перегрузил и случилось чудо! :)</p>
-<h1 id="lsusb"><a href="#lsusb" class="headerlink" title="lsusb"></a>lsusb</h1><p>Bus 002 Device 005: ID [B]19d2:1403[&#x2F;B] ZTE WCDMA Technologies MSM<br>1403 - Modem mode. RNDIS + Mass Storage Device.</p>
-<p>Вернулся в первоначальное состояние.</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
     </footer>
   </div>
 

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+
+<html lang="ru">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>install goland |  Записки на память</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Записки на память" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-install-goland"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  install goland
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/01/22/install-goland/" class="article-date">
+  <time datetime="2023-01-22T18:04:33.000Z" itemprop="datePublished">2023-01-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Количество слов:</span>
+            <span class="post-count">810</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Время чтения≈</span>
+            <span class="post-count">5 минут</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h4 id="Как-установить-Go-на-Debian-10"><a href="#Как-установить-Go-на-Debian-10" class="headerlink" title="Как установить Go на Debian 10"></a>Как установить Go на Debian 10</h4><p>Go, также известный как Golang, является современным языком программирования с открытым исходным кодом, созданным Google. Go стремится к надежному, быстрому и понятному процессу разработки, помогая создавать безопасное и эффективное программное обеспечение.</p>
+<p><strong>Содержание статьи</strong></p>
+<ol>
+<li>Скачать Go на Debian 10</li>
+<li>Установка Go на Debian 10</li>
+<li>Настройка GOPATH на Debian 10</li>
+</ol>
+<p>Тестирование правильности установки Golang<br>В данном руководстве будет показано, как скачать и установить Go, а также скомпилировать и выполнить программу “Hello, World!” на сервере используя ОС Debian 10. Для использования данного руководства у вас должен быть доступ к серверу Debian 10, настроенной для пользователя с привилегиями sudo.</p>
+<p><strong>Скачать Go на Debian 10</strong></p>
+<p>На данном этапе мы установим Go на сервер.<br>Для начала убедитесь, что apt обновлен, использовав следующую команду:</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
+<p>Теперь установите curl, чтобы можно было получить последний релиз Go:</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">sudo apt <span class="hljs-keyword">install</span> curl<br></code></pre></td></tr></table></figure>
+<p>Затем перейдите на официальную страницу скачивания Go и найдите URL для текущего бинарного релиза тарбола. Скопируйте ссылку для последней версии, что совместима с 64-битной архитектурой.</p>
+<p>Из домашней директории используйте curl для получения тарбола:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -O https:<span class="hljs-regexp">//</span>dl.google.com<span class="hljs-regexp">/go/g</span>o1.<span class="hljs-number">15</span>.linux-amd64.tar.gz<br></code></pre></td></tr></table></figure>
+<p>Хотя тарбол получен из подлинного источника, лучше все-таки проверять аутентичность и целостность объектов, скачанных из Интернета. Через метод проверки можно доказать, что файл не был изменен или поврежден во время процесса загрузки. Команда sha256sum выводит уникальный 256-битный хеш:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sha256sum go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
+<p>Вывод:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span><br><span class="hljs-number">2</span>d75848ac606061efe52a8068d0e647b35ce487a15bb52272c427df485193602  go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
+<p>Сравните хеш в выводе со значением контрольной суммы на странице скачивания Go. Если они совпадают, тогда можно считать, что загрузка действительна.</p>
+<p>После скачивания Go и проверки целостности файла можно приступить к процессу установки.</p>
+<h6 id="Установка-Go-на-Debian-10"><a href="#Установка-Go-на-Debian-10" class="headerlink" title="Установка Go на Debian 10"></a>Установка Go на Debian 10</h6><p>Теперь используем tar для извлечения тарбола. Следующие флаги используются для указания tar, как извлекать, просматривать и оперировать над скачанным тарболом:</p>
+<p>Флаг x говорит, что мы хотим извлечь файлы из тарбола;<br>Флаг v указывает, что нам нужен подробный вывод, что включает список извлеченных файлов;<br>Флаг f говорит tar, что мы уточняем название файла, над которым будут проводиться операции.<br>Теперь используем все вышесказанное и запустим команду для извлечения пакета:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">tar xvf go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
+<p>Теперь у вас есть директория под названием go в домашнем каталоге. Рекурсивно изменим владельца и группу данной директории на root, и переместим её в &#x2F;usr&#x2F;local:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chown</span> -R root:root ./go<br>sudo <span class="hljs-built_in">mv</span> go /usr/local<br></code></pre></td></tr></table></figure>
+<p>На заметку: </p>
+<blockquote>
+<p>Хотя рекомендуется использовать локацию &#x2F;usr&#x2F;local&#x2F;go, некоторые пользователи выбирают место по своему усмотрению.</p>
+</blockquote>
+<p>На данный момент использование Go потребует уточнение полного пути к его локации установки в командной строке. Для создания более удобной интеграции Go с пользователями установим несколько путей.</p>
+<h6 id="Настройка-GOPATH-в-Debian-10"><a href="#Настройка-GOPATH-в-Debian-10" class="headerlink" title="Настройка GOPATH в Debian 10"></a>Настройка GOPATH в Debian 10</h6><p>На данной этапе мы настроим несколько путей в среде.<br>Для начала настроим корневое значение, что указывает Go, на то где искать файлы:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nano ~/.profile<br></code></pre></td></tr></table></figure>
+<p>В конец файла добавим следующие строки:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir">export <span class="hljs-title class_">GOPATH</span>=<span class="hljs-variable">$HOME</span>/work<br>export <span class="hljs-title class_">PATH</span>=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/usr/local/go/bin</span><span class="hljs-symbol">:</span><span class="hljs-variable">$GOPATH</span>/bin<br></code></pre></td></tr></table></figure>
+<p>Если вы выбрали другое место для установки Go, тогда вместо вышеуказанных путей добавьте следующие строчки в файл. В данном примере мы добавляем строчки, что могут потребоваться, если вы установили Go в домашнюю директорию.</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">GOROOT</span>=<span class="hljs-variable">$HOME</span>/go<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">GOPATH</span>=<span class="hljs-variable">$HOME</span>/work<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$PATH</span>:$GOROOT/bin:$GOPATH/bin<br></code></pre></td></tr></table></figure>
+<p>Вставьте подходящие строчки в ваш профиль, сохраните и закройте файл.</p>
+<p>Затем обновите профиль, запустив:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.profile<br></code></pre></td></tr></table></figure>
+<p>Установив Go и настроив пути среды, давайте подтвердим, что все работаем должным образом через небольшую программу.</p>
+<p>Тестирование правильности установки Go на Debian 10<br>Теперь, когда Go установлен, а пути для сервера настроены, надо убедиться, что Go работает правильно.</p>
+<p>Создадим директорию для рабочего пространства Go, куда будут помещаться созданные файлы:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$HOME</span>/work<br></code></pre></td></tr></table></figure>
+<p>Затем создадим директорию в данной папке для тестового файла. Используем директорию my_project в качестве примера:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkdir -p work<span class="hljs-regexp">/src/my</span>_project/hello<br></code></pre></td></tr></table></figure>
+<p>Затем создадим традиционный файл «Hello World»:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">nano ~<span class="hljs-regexp">/work/</span>src<span class="hljs-regexp">/my_project/</span>hello/hello.go<br></code></pre></td></tr></table></figure>
+<p>Через текстовый редактор добавим следующий код в файл, что использует главные пакеты Go, импортиртирует форматированный компонент содержимого I&#x2F;O и настраивает новую функцию для вывода «Hello, World!», после чего запускаем:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">nano ~<span class="hljs-regexp">/work/</span>src<span class="hljs-regexp">/my_project/</span>hello/hello.go<br></code></pre></td></tr></table></figure>
+<p>добавляем следующий код<br><code></p>
+<p>package main</p>
+<p>import "fmt"</p>
+<p>func main()<br>&#123;<br>   fmt.Printf("Hello, World!\n")<br>&#125;</p>
+</code>
+После запуска программы будет выводиться результат Hello, World!, тем самым доказывая, что Go-программы компилируются должным образом.
+
+<p>Сохраните файл, затем скомпилируйте его, вызвав команду go install:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">go install my_project/hello<br></code></pre></td></tr></table></figure>
+<p>Скомпилируемую программу вы можете запустить через следующую команду:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./hello<br></code></pre></td></tr></table></figure>
+<p>Go успешно установлен и функционален, если вы увидите следующий вывод:</p>
+<blockquote>
+<p>Hello, World!</p>
+</blockquote>
+<p>Вы можете определить, где скомпилированный бинарный hello установлен, используя команду which:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">which</span> hello<br></code></pre></td></tr></table></figure>
+<p>Вывод:</p>
+<blockquote>
+<p>/home/sammy/work/bin/hello</p>
+</blockquote>
+<p>Программа “Hello, World!” показывает, что теперь у вас есть среда разработки.</p>
+<p><strong>Заключение</strong></p>
+<p>Загрузив и установив последнюю версию Go и настроив его пути, вы можете начать программирование на Go. Чтобы узнать больше о работе с Go, ознакомьтесь с серией статей Курс изучения Golang для начинающих. Вы также можете изучить официальную документацию Go.</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          вознаграждение
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Авторские права： </strong>
+          
+          Авторские права принадлежат автору. Для коммерческих перепечаток, пожалуйста, свяжитесь с автором для авторизации. Для некоммерческих перепечаток, пожалуйста, укажите источник.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQW4DMQgF0Nz/0qnUVaUqkw+4Ssd+XkVVMvabBcXA4xGv5/e6/vz7+z/X9TOTvy9YGBgYt2U8L9ero19/8xXg+hUkT3v5ajAwMA5gJEG2F16rpDygY2BgYOTB8Ro5SRkxMDAwegH3L9LHD/zfwMDAuCFj7cb505LUcPFdHAMD44aMVY2Bv/j8gf4GBgbGP2M8i2ttSM0vxm92xMDA2JpxXUqbR7bJk5PX8eZei4GBsR1jskFv+16zM0oQMTAwNmIkh8vZvfJZcm1+szsGBsbWjOpQxSRYTyJkcgHGwMA4gVFN3eZX2eQV5H/HwMDYlTEPtfkwa94kqA52YGBgnMBIUrR8417o7LVLMTAwzmH0Am51dCxPFquVfwwMjBMYeZl+3kKotiejoI+BgXEwIwmUq5oEeSPzTUsAAwNjO0beIJyE1MnwWeGcGBgYmzKSwtmkAZCX53pjFhgYGCcw5qNgvYJd9VdRywEDA+MARn7oavOyWlBrwjAwMDZl9IYk5kNj81Zo8ygYGBi3ZVQPWk34qmG0HNwxMDC2ZvSC49omQTUQR+U2DAyMjRjP4koKZM0+anEEBAMD4xxGvpKgXE3yksGvQgsTAwNja0YvyOZNzTz5G6WnGBgYBzCqQXZS4u+tqBOLgYFxPCMvriVX0OpIx7KAi4GBcTAjb09Wy3BRuomBgXEAIx90qA5h9BLN/AVhYGCcwJg0BvJRjN5vF2MwMDDux/gCokOodkrSgBEAAAAASUVORK5CYII=" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">умный дом</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2023
+        <i class="ri-heart-fill heart_icon"></i> aleks kylikov
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Записки на память"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Главная</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Архивы</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">Категории</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">Теги</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Поиск">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS-каналы">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

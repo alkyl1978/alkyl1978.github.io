@@ -1,5 +1,6 @@
 ## My posts  
-### **2023-01** (4)  
+### **2023-01** (5)  
+- 2023-01-22 [install goland](https://alkyl1978.github.io/2023/01/22/install-goland/)  
 - 2023-01-20 [умный дом](https://alkyl1978.github.io/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/)  
 - 2023-01-15 [about](https://alkyl1978.github.io/2023/01/15/about/)  
 - 2023-01-13 [Hello World](https://alkyl1978.github.io/2023/01/13/hello-world/)  
