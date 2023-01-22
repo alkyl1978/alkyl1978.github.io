@@ -36,6 +36,8 @@
 
       <!-- mermaid -->
       
+      <script src="https://cdn.staticfile.org/mermaid/8.14.0/mermaid.min.js"></script>
+      
       <style>
         .swal2-styled.swal2-confirm {
           font-size: 1.6rem;
@@ -56,7 +58,7 @@
 <section class="cover">
     
       
-      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+      <a class="forkMe" href="https://github.com/alkyl1978/hexo-theme-ayer"
         target="_blank"><img width="149" height="149" src="/images/forkme.png"
           class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
     
@@ -91,7 +93,7 @@
   <script>
     try {
       var typed = new Typed("#subtitle", {
-        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        strings: ['Привет', 'Привет как дела', 'Привет как делишки'],
         startDelay: 0,
         typeSpeed: 200,
         loop: true,
@@ -106,48 +108,6 @@
 <div id="main">
   <section class="outer">
   
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
   
   <article class="articles">
     
@@ -825,7 +785,7 @@ tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив t
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">Страница назад</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Страница вперед</a>
   </nav>
   
 </section>
@@ -836,7 +796,7 @@ tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив t
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2023
         <i class="ri-heart-fill heart_icon"></i> aleks kylikov
       </li>
     </ul>
@@ -847,13 +807,6 @@ tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив t
     </ul>
     <ul>
       <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
         
       </li>
     </ul>
@@ -866,8 +819,6 @@ tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив t
     <ul>
       <li>
         <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -940,7 +891,7 @@ tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив t
 <!-- #reward -->
 <div id="reward">
   <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <p class="reward-p"><i class="ri-cup-line"></i>wording</p>
   <div class="reward-box">
     
     <div class="reward-item">
@@ -1082,11 +1033,16 @@ tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив t
 <!-- MathJax -->
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
- 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
- 
+
 <!-- ClickLove -->
 
 <!-- ClickBoom1 -->
