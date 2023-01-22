@@ -1,9 +1,9 @@
 kind: pipeline
 steps:
   - name: submodules
-     image: alpine/git
-     commands:
-     - git submodule update --init --recursive
+    image: alpine/git
+    commands:
+    - git submodule update --init --recursive
   - name: restore-cache
     image: meltwater/drone-cache:dev
     environment:
