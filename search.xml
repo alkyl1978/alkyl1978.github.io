@@ -3,15 +3,17 @@
   <entry>
     <title>install goland</title>
     <url>/2023/01/22/install-goland/</url>
-    <content><![CDATA[<h4 id="Как-установить-Go-на-Debian-10"><a href="#Как-установить-Go-на-Debian-10" class="headerlink" title="Как установить Go на Debian 10"></a>Как установить Go на Debian 10</h4><p>Go, также известный как Golang, является современным языком программирования с открытым исходным кодом, созданным Google. Go стремится к надежному, быстрому и понятному процессу разработки, помогая создавать безопасное и эффективное программное обеспечение.</p>
+    <content><![CDATA[<p> <strong>Как установить Go на Debian 10</strong></p>
+<p>Go, также известный как Golang, является современным языком программирования с открытым исходным кодом, созданным Google. Go стремится к надежному, быстрому и понятному процессу разработки, помогая создавать безопасное и эффективное программное обеспечение.</p>
 <p><strong>Содержание статьи</strong></p>
 <ol>
-<li>Скачать Go на Debian 10</li>
-<li>Установка Go на Debian 10</li>
-<li>Настройка GOPATH на Debian 10</li>
+<li><a href="#get">Скачать Go на Debian 10</a></li>
+<li><a href="#install">Установка Go на Debian 10</a></li>
+<li><a href="#path">Настройка GOPATH на Debian 10</a></li>
+<li><a href="#end">Заключение</a></li>
 </ol>
 <p>Тестирование правильности установки Golang<br>В данном руководстве будет показано, как скачать и установить Go, а также скомпилировать и выполнить программу “Hello, World!” на сервере используя ОС Debian 10. Для использования данного руководства у вас должен быть доступ к серверу Debian 10, настроенной для пользователя с привилегиями sudo.</p>
-<h6 id="Скачать-Go-на-Debian-10"><a href="#Скачать-Go-на-Debian-10" class="headerlink" title="Скачать Go на Debian 10"></a>Скачать Go на Debian 10</h6><p>На данном этапе мы установим Go на сервер.<br>Для начала убедитесь, что apt обновлен, использовав следующую команду:</p>
+<h6 id="Скачать-Go-на-Debian-10"><a href="#Скачать-Go-на-Debian-10" class="headerlink" title="Скачать Go на Debian 10"></a><a name="get"></a>Скачать Go на Debian 10</h6><p>На данном этапе мы установим Go на сервер.<br>Для начала убедитесь, что apt обновлен, использовав следующую команду:</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
 <p>Теперь установите curl, чтобы можно было получить последний релиз Go:</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">sudo apt <span class="hljs-keyword">install</span> curl<br></code></pre></td></tr></table></figure>
@@ -24,7 +26,7 @@
 <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus">go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span><br><span class="hljs-number">2</span>d75848ac606061efe52a8068d0e647b35ce487a15bb52272c427df485193602  go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
 <p>Сравните хеш в выводе со значением контрольной суммы на странице скачивания Go. Если они совпадают, тогда можно считать, что загрузка действительна.</p>
 <p>После скачивания Go и проверки целостности файла можно приступить к процессу установки.</p>
-<h6 id="Установка-Go-на-Debian-10"><a href="#Установка-Go-на-Debian-10" class="headerlink" title="Установка Go на Debian 10"></a>Установка Go на Debian 10</h6><p>Теперь используем tar для извлечения тарбола. Следующие флаги используются для указания tar, как извлекать, просматривать и оперировать над скачанным тарболом:</p>
+<h6 id="Установка-Go-на-Debian-10"><a href="#Установка-Go-на-Debian-10" class="headerlink" title="Установка Go на Debian 10"></a><a name="install"></a>Установка Go на Debian 10</h6><p>Теперь используем tar для извлечения тарбола. Следующие флаги используются для указания tar, как извлекать, просматривать и оперировать над скачанным тарболом:</p>
 <p>Флаг x говорит, что мы хотим извлечь файлы из тарбола;<br>Флаг v указывает, что нам нужен подробный вывод, что включает список извлеченных файлов;<br>Флаг f говорит tar, что мы уточняем название файла, над которым будут проводиться операции.<br>Теперь используем все вышесказанное и запустим команду для извлечения пакета:</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus">tar xvf go1.<span class="hljs-number">15</span><span class="hljs-selector-class">.linux-amd64</span><span class="hljs-selector-class">.tar</span>.gz<br></code></pre></td></tr></table></figure>
 <p>Теперь у вас есть директория под названием go в домашнем каталоге. Рекурсивно изменим владельца и группу данной директории на root, и переместим её в &#x2F;usr&#x2F;local:</p>
@@ -34,7 +36,7 @@
 <p>Хотя рекомендуется использовать локацию &#x2F;usr&#x2F;local&#x2F;go, некоторые пользователи выбирают место по своему усмотрению.</p>
 </blockquote>
 <p>На данный момент использование Go потребует уточнение полного пути к его локации установки в командной строке. Для создания более удобной интеграции Go с пользователями установим несколько путей.</p>
-<h6 id="Настройка-GOPATH-в-Debian-10"><a href="#Настройка-GOPATH-в-Debian-10" class="headerlink" title="Настройка GOPATH в Debian 10"></a>Настройка GOPATH в Debian 10</h6><p>На данной этапе мы настроим несколько путей в среде.<br>Для начала настроим корневое значение, что указывает Go, на то где искать файлы:</p>
+<h6 id="Настройка-GOPATH-в-Debian-10"><a href="#Настройка-GOPATH-в-Debian-10" class="headerlink" title="Настройка GOPATH в Debian 10"></a><a name="path"></a>Настройка GOPATH в Debian 10</h6><p>На данной этапе мы настроим несколько путей в среде.<br>Для начала настроим корневое значение, что указывает Go, на то где искать файлы:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">nano ~/.profile<br></code></pre></td></tr></table></figure>
 <p>В конец файла добавим следующие строки:</p>
 <figure class="highlight elixir"><table><tr><td class="code"><pre><code class="hljs elixir">export <span class="hljs-title class_">GOPATH</span>=<span class="hljs-variable">$HOME</span>/work<br>export <span class="hljs-title class_">PATH</span>=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/usr/local/go/bin</span><span class="hljs-symbol">:</span><span class="hljs-variable">$GOPATH</span>/bin<br></code></pre></td></tr></table></figure>
@@ -75,7 +77,7 @@
 <p>/home/sammy/work/bin/hello</p>
 </blockquote>
 <p>Программа “Hello, World!” показывает, что теперь у вас есть среда разработки.</p>
-<h6 id="Заключение"><a href="#Заключение" class="headerlink" title="Заключение"></a>Заключение</h6><p>Загрузив и установив последнюю версию Go и настроив его пути, вы можете начать программирование на Go. Чтобы узнать больше о работе с Go, ознакомьтесь с серией статей Курс изучения Golang для начинающих. Вы также можете изучить официальную документацию Go.</p>
+<h6 id="Заключение"><a href="#Заключение" class="headerlink" title="Заключение"></a><a name="end"></a>Заключение</h6><p>Загрузив и установив последнюю версию Go и настроив его пути, вы можете начать программирование на Go. Чтобы узнать больше о работе с Go, ознакомьтесь с серией статей Курс изучения Golang для начинающих. Вы также можете изучить официальную документацию Go.</p>
 ]]></content>
   </entry>
   <entry>
