@@ -135,7 +135,6 @@ admin:
   username: admin
   password_hash: $2a$10$PQdt/uWY9dZFBRrk2zpHGOlpgyI9TB8TjIQ46GCCOCsDIlnC6MSMS
   secret: my sup1234423er secret phrase
-  deployCommand: './hexo-deploy.sh'
 
 deploy:
   type: git
