@@ -115,6 +115,63 @@
     
     
     <article
+  id="post-Zyxel-kenetic"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/08/15/Zyxel-kenetic/"
+    >Zyxel kenetic</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/08/15/Zyxel-kenetic/" class="article-date">
+  <time datetime="2020-08-15T00:44:17.000Z" itemprop="datePublished">2020-08-15</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Положите в папку установленного tftp-сервера<br>(в папку программы-сервера)<br>микропрограмму первого поколения V1.00(XXX.X)D0,<br>предназначенную именно для вашего интернет-центра:</p>
+<p>Для восстановления работоспособности Keenetic 4G ревизии А (Rev.A) скачайте архив с микропрограммой: <a target="_blank" rel="noopener" href="https://help.keenetic.net/hc/article_attachments/209440529/Keenetic-4G-V1.00%5BBWO.4.4%5DD0.zip">https://help.keenetic.net/hc/article_attachments/209440529/Keenetic-4G-V1.00%5BBWO.4.4%5DD0.zip</a><br>Для восстановления работоспособности Keenetic 4G ревизии B (Rev.B) скачайте архив с микропрограммой: <a target="_blank" rel="noopener" href="https://help.keenetic.net/hc/article_attachments/209440749/Keenetic-4G-V1.00%5BAABV.1.2%5DD0.zip">https://help.keenetic.net/hc/article_attachments/209440749/Keenetic-4G-V1.00%5BAABV.1.2%5DD0.zip</a><br>Отличия интернет-центров Keenetic 4G ревизии A (Rev.A) и Keenetic 4G ревизии B (Rev.B) представлены в статье: «Отличия интернет-центров Keenetic Lite&#x2F;4G ревизии A (Rev.A) от ревизии B (Rev.B)»<br>Распакуйте его и переименуйте bin-файл из архива в файл с именем rt305x_firmware.bin.<br>Подключите компьютер кабелем Ethernet к одному из LAN-портов Keenetic. На сетевом адаптере компьютера установите вручную IP-адрес 192.168.99.8 с маской подсети 255.255.255.0.</p>
+<ol start="3">
+<li><p>Удерживая кнопку RESET в нажатом состоянии, включите питание интернет-центра.</p>
+</li>
+<li><p>Через 5 секунд после включения отпустите кнопку RESET. Keenetic должен получить с tftp-сервера файл с именем rt305x_firmware.bin и записать его в энергонезависимую память.</p>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/router/" rel="tag">router</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-zte-modem"
   class="article article-type-post"
   itemscope
@@ -697,78 +754,6 @@ exit 0
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESP8266/" rel="tag">ESP8266</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Создание-архива-tar"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/10/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D0%B0-tar/"
-    >Создание архива tar</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/06/10/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D0%B0-tar/" class="article-date">
-  <time datetime="2020-06-10T22:47:17.000Z" itemprop="datePublished">2020-06-10</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Архиватор Tar в Linux.<br>Архив tar может быть сжат в gzip. Формат тогда будет выглядеть так - tar.gz</p>
-<p>Как создать архив tar в FreeBSD:</p>
-<pre><code>tar -cvf archive.tar /var/db/mysql/*
-</code></pre>
-<p>c — create - создание архива<br>v — verbose - выдача доп. сообщений при создании архива<br>f — создать файл на диске<br>&#x2F;var&#x2F;db&#x2F;mysql&#x2F;* - архивируемые файлы через пробел.</p>
-<p> Как сжать содержимое архива tar?</p>
-<pre><code>tar -cvzf archive.tar.gz /var/db/mysql/*
-</code></pre>
-<p>Содержимое архива будет сжато при помощи gzip</p>
-<p>Как извлечь содержимое архива tar в текущую папку?</p>
-<pre><code>tar -xf archive.tar - извлечь обычный архив tar в текущую директорию
-
-tar -xzf archive.tar.gz - извлечь сжатый архив tar в текущую директорию
-</code></pre>
-<p>Как извлечь содержимое архива tar в указанную папку?</p>
-<pre><code>tar -xf archive.tar -C /home/data - извлечь обычный архив tar в директорию /home/data
-
-tar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив tar в директорию /home/data
-</code></pre>
-<p>Как исключить файл или папку при архивировании или создании архива tar?<br>Для исключения файлов или папки используется опция –exclude</p>
-<pre><code>tar --exclude=&#39;/home/user/*&#39; -cvzf archive.tar.gz /home/*
-</code></pre>
-<p>В этом примере архивируем всю директорию &#x2F;home , но исключаем из архива папку &#x2F;home&#x2F;user</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tar-debian/" rel="tag">tar,debian</a></li></ul>
 
     </footer>
   </div>
