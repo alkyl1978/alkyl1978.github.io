@@ -144,17 +144,17 @@
        
   <h4 id="Установка-Docker-в-Debian-11"><a href="#Установка-Docker-в-Debian-11" class="headerlink" title="Установка Docker в Debian 11"></a>Установка Docker в Debian 11</h4><p>Docker - одна из самых популярных программ для контейнеризации. В терминологии Docker, контейнеры – это стандартная единица программного обеспечения, которая упаковывает код и все его зависимости, для того чтобы приложение можно было быстро и надежно запустить на разных операционных системах и в разных вычислительных средах.</p>
 <p>С технической точки зрения контейнер - это запущенный процесс (наподобие процессов в операционных системах) который изолирован от других процессов и имеет доступ к ресурсам компьютера. В данной статье будет рассмотрена установка Docker в Debian 11, а также запуск первого приложения.</p>
-<p>Содержание статьи:</p>
-<pre><code>Установка Docker в Debian 11
-    Шаг 1. Добавление репозитория Docker
-    Шаг 2. Установка пакетов Docker
-    Шаг 3. Запуск и автозагрузка Docker
-    Шаг 4. Добавление пользователя в группу Docker
-    Шаг 5. Запуск контейнера с hello-world
-Выводы
-</code></pre>
-<h6 id="Установка-Docker-в-Debian-11-1"><a href="#Установка-Docker-в-Debian-11-1" class="headerlink" title="Установка Docker в Debian 11"></a>Установка Docker в Debian 11</h6><p>Установить Docker в Debian 11 можно двумя способами - при помощи стандартных репозиториев Debian или при помощи официального репозитория Docker. В репозиториях Debian содержится не самая свежая версия, поэтому будет рассмотрен способ установки из официального репозитория Docker.<br>Шаг 1. Добавление репозитория Docker</p>
-<p>Перед добавление репозитория Docker необходимо обновить список пакетов выполнив команду:</p>
+<p><strong>Содержание статьи:</strong></p>
+<ol>
+<li><a href="#add">Добавление репозитория Docker</a></li>
+<li><a href="#install">Установка пакетов Docker</a></li>
+<li><a href="#get">Запуск и автозагрузка Docker</a></li>
+<li><a href="#useradd">Добавление пользователя в группу Docker</a></li>
+<li><a href="#run">Запуск контейнера с hello-world</a></li>
+<li><a href="#end">Выводы</a></li>
+</ol>
+<p>Установить Docker в Debian 11 можно двумя способами - при помощи стандартных репозиториев Debian или при помощи официального репозитория Docker. В репозиториях Debian содержится не самая свежая версия, поэтому будет рассмотрен способ установки из официального репозитория Docker.</p>
+<h6 id="Добавление-репозитория-Docker"><a href="#Добавление-репозитория-Docker" class="headerlink" title="Добавление репозитория Docker"></a><a name="add"></a>Добавление репозитория Docker</h6><p>Перед добавление репозитория Docker необходимо обновить список пакетов выполнив команду:</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
 <p>А также установить дополнительные пакеты, которые необходимы для работы с удалёнными репозиториями. Для установки данных пакетов необходимо выполнить команду:</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo apt -y install ca-certificates curl gnupg lsb-release<br></code></pre></td></tr></table></figure>
@@ -162,18 +162,16 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -fsSL https:<span class="hljs-regexp">//</span>download.docker.com<span class="hljs-regexp">/linux/</span>debian<span class="hljs-regexp">/gpg | sudo gpg --dearmor -o /u</span>sr<span class="hljs-regexp">/share/</span>keyrings/docker-archive-keyring.gpg<br></code></pre></td></tr></table></figure>
 <p>Для добавления репозитория Docker необходимо выполнить команду:</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">echo <span class="hljs-string">&quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable&quot;</span> | sudo tee <span class="hljs-regexp">/etc/</span>apt<span class="hljs-regexp">/sources.list.d/</span>docker.list &gt; <span class="hljs-regexp">/dev/</span><span class="hljs-keyword">null</span><br></code></pre></td></tr></table></figure>
-<p>Шаг 2. Установка пакетов Docker</p>
-<p>Для установки Docker сначала необходимо обновить списки пакетов чтобы в системе появился новый репозиторий. Для этого достаточно выполнить команду:</p>
+<h6 id="Установка-пакетов-Docker"><a href="#Установка-пакетов-Docker" class="headerlink" title="Установка пакетов Docker"></a><a name="install"></a>Установка пакетов Docker</h6><p>Для установки Docker сначала необходимо обновить списки пакетов чтобы в системе появился новый репозиторий. Для этого достаточно выполнить команду:</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
 <p>После этого можно установить Docker и дополнительные пакеты. Установка производится при помощи команды:</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo apt -<span class="hljs-keyword">y</span> install docker-<span class="hljs-keyword">ce</span> docker-<span class="hljs-keyword">ce</span>-cli containerd.io<br></code></pre></td></tr></table></figure>
-<p>Слово ce в названии пакета docker-ce расшифровывается как community что означает что будет установлена бесплатная версия (она же версия от сообщества). Теперь вы знаете как установить docker debian.<br>Шаг 3. Запуск и автозагрузка Docker</p>
-<p>После установки, по умолчанию Docker будет выключен. Чтобы запустить программу необходимо выполнить команду:</p>
+<p>Слово ce в названии пакета docker-ce расшифровывается как community что означает что будет установлена бесплатная версия (она же версия от сообщества). Теперь вы знаете как установить docker debian.</p>
+<h6 id="Запуск-и-автозагрузка-Docker"><a href="#Запуск-и-автозагрузка-Docker" class="headerlink" title="Запуск и автозагрузка Docker"></a><a name="get"></a>Запуск и автозагрузка Docker</h6><p>После установки, по умолчанию Docker будет выключен. Чтобы запустить программу необходимо выполнить команду:</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">sudo systemctl <span class="hljs-literal">start</span> docker<br></code></pre></td></tr></table></figure>
 <p>Чтобы Docker запускался вместе с операционной системой его необходимо добавить в автозагрузку при помощи команды:</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo systemctl <span class="hljs-built_in">enable</span> docker<br></code></pre></td></tr></table></figure>
-<p>Шаг 4. Добавление пользователя в группу Docker</p>
-<p>По умолчанию использовать Docker и выполнять его команды в терминале может только пользователь root. Если выполнить какую-либо команду Docker от обычного пользователя, то в терминале отобразится следующая ошибка:</p>
+<h6 id="Добавление-пользователя-в-группу-Docker"><a href="#Добавление-пользователя-в-группу-Docker" class="headerlink" title="Добавление пользователя в группу Docker"></a><a name="useradd"></a>Добавление пользователя в группу Docker</h6><p>По умолчанию использовать Docker и выполнять его команды в терминале может только пользователь root. Если выполнить какую-либо команду Docker от обычного пользователя, то в терминале отобразится следующая ошибка:</p>
 <blockquote>
 <p>Got permission denied while trying to connect to the Docker daemon socket at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock: Get “http:&#x2F;&#x2F;%2Fvar%2Frun%2Fdocker.sock&#x2F;v1.24&#x2F;containers&#x2F;json”: dial unix &#x2F;var&#x2F;run&#x2F;docker.sock: connect: permission denied</p>
 </blockquote>
@@ -184,12 +182,11 @@
 <p>Переменная $USER означает что в группу docker будет добавлен текущий пользователь, от имени которого запущена сессия. Данная переменная присутствует во всех современных дистрибутивах Linux. Также стоит отметить, что группа docker предоставляет привилегии, эквивалентные привилегиям пользователя root.</p>
 <p>После добавления пользователя необходимо перелогиниться в системе и только потом можно запустить любую команду Docker для проверки. В качестве примера была выполнена команда docker ps которая отображает список запущенных контейнеров:</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker ps</span><br></code></pre></td></tr></table></figure>
-<p>Как видно на скриншоте выше команда выполнилась без ошибок и от лица обычного пользователя.<br>Шаг 5. Запуск контейнера с hello-world</p>
-<p>Для полноценной проверки Docker можно загрузить тестовый образ с hello-world для проверки. Для этого необходимо выполнить команду:</p>
+<p>Как видно на скриншоте выше команда выполнилась без ошибок и от лица обычного пользователя.</p>
+<h6 id="Запуск-контейнера-с-hello-world"><a href="#Запуск-контейнера-с-hello-world" class="headerlink" title="Запуск контейнера с hello-world"></a><a name="run"></a>Запуск контейнера с hello-world</h6><p>Для полноценной проверки Docker можно загрузить тестовый образ с hello-world для проверки. Для этого необходимо выполнить команду:</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">docker <span class="hljs-built_in">run</span> hello-world<br></code></pre></td></tr></table></figure>
 <p>Команда docker run загрузит образ программы из онлайн-репозитория docker hub - официального реестра хранения образов программного обеспечения от Docker который используется по умолчанию и автоматически запустит его. В данном примере была выведена фраза Hello from Docker! которая означает что образ успешно был скачен и запущен.</p>
-<p>Выводы</p>
-<p>В данной статье была рассмотрена установка Docker в Debian 11, а также на примере был скачан и запущен тестовый образ hello world для проверки работоспособности программы. Процедура установки не отличается сложностью.</p>
+<h6 id="Выводы"><a href="#Выводы" class="headerlink" title="Выводы"></a><a name="end"></a>Выводы</h6><p>В данной статье была рассмотрена установка Docker в Debian 11, а также на примере был скачан и запущен тестовый образ hello world для проверки работоспособности программы. Процедура установки не отличается сложностью.</p>
  
       <!-- reward -->
       
