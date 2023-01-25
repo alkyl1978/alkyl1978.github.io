@@ -37,6 +37,15 @@ steps:
       ssh_key:
         from_secret: ssh_key
       force: true
+  - name: push blog
+    image: appleboy/drone-git-push
+    settings:
+      remote: ssh://git@git.lp76.ru:22/aleks/blog.git
+      remote_name: github
+      branch: master
+      ssh_key:
+        from_secret: ssh_key
+      force: true
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
     environment:
