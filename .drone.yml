@@ -28,7 +28,7 @@ steps:
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
     - env
-  - name: push commit
+  - name: push gh-pages
     image: appleboy/drone-git-push
     settings:
       remote: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
@@ -36,15 +36,6 @@ steps:
       branch: master
       ssh_key:
         from_secret: ssh_key_github
-      force: true
-  - name: push blog
-    image: appleboy/drone-git-push
-    settings:
-      remote: ssh://git@git.lp76.ru:22/aleks/blog.git
-      remote_name: github
-      branch: master
-      ssh_key:
-        from_secret: ssh_key
       force: true
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
