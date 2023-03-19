@@ -16,3 +16,6 @@ subtitle:
   loop: true # 是否循环
   backSpeed: 100 # 回退速度
   showCursor: true # 是否显示光标
+
+  share_china: false 
+  share_eng: false

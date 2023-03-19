@@ -104,18 +104,6 @@ search:
 
 rss: /atom.xml
 
-leancloud:
-  enable: false
-  app_id: #
-  app_key: #
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-#theme: landscape
-#theme: ocean
-#theme: Cxo
-#theme: card
-#theme: ayelee
 theme: ayer
 
 # Deployment
