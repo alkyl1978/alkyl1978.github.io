@@ -116,7 +116,7 @@
     
     
     <article
-  id="post-умный-дом"
+  id="post-openwrt-imagebinder"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -127,8 +127,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/"
-    >умный дом</a> 
+  <a class="article-title" href="/2020/08/25/openwrt-imagebinder/"
+    >openwrt imagebinder</a> 
 </h2>
  
 
@@ -136,14 +136,24 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/" class="article-date">
-  <time datetime="2023-01-20T16:33:16.000Z" itemprop="datePublished">2023-01-20</time>
-</a>    
+      <a href="/2020/08/25/openwrt-imagebinder/" class="article-date">
+  <time datetime="2020-08-25T09:43:33.000Z" itemprop="datePublished">2020-08-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/openwrt/">openwrt</a>
+  </div>
+   
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h6 id="обновляем-пакеты"><a href="#обновляем-пакеты" class="headerlink" title="обновляем пакеты"></a>обновляем пакеты</h6><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
+<h6 id="устанавливаем-нужные-пакеты"><a href="#устанавливаем-нужные-пакеты" class="headerlink" title="устанавливаем нужные пакеты"></a>устанавливаем нужные пакеты</h6><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">sudo apt-<span class="hljs-built_in">get</span> install build-essential libncurses5-<span class="hljs-built_in">dev</span> libncursesw5-<span class="hljs-built_in">dev</span> zlib1g-<span class="hljs-built_in">dev</span> gawk git gettext libssl-<span class="hljs-built_in">dev</span> xsltproc wget unzip python<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget &lt;https:<span class="hljs-regexp">//</span>downloads.openwrt.org<span class="hljs-regexp">/releases/</span><span class="hljs-number">18.06</span>.<span class="hljs-number">5</span><span class="hljs-regexp">/targets/</span>ramips<span class="hljs-regexp">/rt305x/</span>openwrt-imagebuilder-<span class="hljs-number">18.06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -xf openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">rm</span> openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64<br></code></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">make image <span class="hljs-attribute">PROFILE</span>=nbg-419n -j3<br></code></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
@@ -153,6 +163,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li></ul>
+
     </footer>
   </div>
 
@@ -166,7 +178,7 @@
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">Страница назад</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Страница вперед</a>
+    <a class="extend prev" rel="prev" href="/page/9/">Страница назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/">Страница вперед</a>
   </nav>
   
 </section>

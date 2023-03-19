@@ -116,7 +116,7 @@
     
     
     <article
-  id="post-умный-дом"
+  id="post-zte-modem"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -127,8 +127,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/"
-    >умный дом</a> 
+  <a class="article-title" href="/2020/08/13/zte-modem/"
+    >zte modem</a> 
 </h2>
  
 
@@ -136,14 +136,28 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/" class="article-date">
-  <time datetime="2023-01-20T16:33:16.000Z" itemprop="datePublished">2023-01-20</time>
+      <a href="/2020/08/13/zte-modem/" class="article-date">
+  <time datetime="2020-08-13T23:59:13.000Z" itemprop="datePublished">2020-08-13</time>
 </a>    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>Сначала зачем-то тыкнул эту команду (переводим модем в режим с COM портами и ADB интерфейсом):</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6">http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6</a><br>После ввода вот этой команды потерял связь с модемом по CGI:</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY">http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY</a></p>
+<h1 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h1><p>[    5.663021] usb 1-1.4: new high-speed USB device number 4 using ehci-pci<br>[    5.797594] usb 1-1.4: New USB device found, idVendor&#x3D;19d2, idProduct&#x3D;0016<br>[    5.797597] usb 1-1.4: New USB device strings: Mfr&#x3D;1, Product&#x3D;2, SerialNumber&#x3D;3<br>[    5.797598] usb 1-1.4: Product: ZTE Wireless Ethernet Adapter<br>[    5.797599] usb 1-1.4: Manufacturer: ZTE,Incorporated<br>[    5.817413] usbcore: registered new interface driver usbserial<br>[    5.817421] usbcore: registered new interface driver usbserial_generic<br>[    5.817426] usbserial: USB Serial support registered for generic<br>[    5.822291] usbcore: registered new interface driver option<br>[    5.822300] usbserial: USB Serial support registered for GSM modem (1-port)<br>[    5.822373] option 1-1.4:1.0: GSM modem (1-port) converter detected<br>[    5.823265] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB0</p>
+<p>От этих вариантов нет эффекта:</p>
+<h1 id="echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><p>Еще в окошке «Cетевые соединения» удалил соединение по Ethernet, оно же вроде само восстановится?</p>
+<p>UPD В соседнем окошке терминала нет ответа:</p>
+<p>sudo cat &#x2F;dev&#x2F;ttyUSB0</p>
+<p>sudo rm &#x2F;dev&#x2F;ttyUSB*<br>sudo modprobe -fr option<br>sudo modprobe -fr usbserial<br>sudo modprobe usbserial vendor&#x3D;0x19d2 product&#x3D;0x0016<br>ls &#x2F;dev&#x2F;ttyUSB*<br>Теперь их три штуки:</p>
+<p>&#x2F;dev&#x2F;ttyUSB0  &#x2F;dev&#x2F;ttyUSB1  &#x2F;dev&#x2F;ttyUSB2<br>Но minicom по прежнему не реагирует, перебрал все.</p>
+<p>Помогло! Хотя ответов в minicom не видел, вслепую набирал AT-команды для каждого ttyUSB*</p>
+<p>AT+ZCDRUN&#x3D;8<br>AT+ZCDRUN&#x3D;F<br>Потом перегрузил и случилось чудо! :)</p>
+<h1 id="lsusb"><a href="#lsusb" class="headerlink" title="lsusb"></a>lsusb</h1><p>Bus 002 Device 005: ID [B]19d2:1403[&#x2F;B] ZTE WCDMA Technologies MSM<br>1403 - Modem mode. RNDIS + Mass Storage Device.</p>
+<p>Вернулся в первоначальное состояние.</p>
+ 
       <!-- reward -->
       
     </div>
@@ -166,7 +180,7 @@
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">Страница назад</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Страница вперед</a>
+    <a class="extend prev" rel="prev" href="/page/11/">Страница назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/13/">Страница вперед</a>
   </nav>
   
 </section>

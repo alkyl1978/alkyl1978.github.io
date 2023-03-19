@@ -116,7 +116,7 @@
     
     
     <article
-  id="post-умный-дом"
+  id="post-ssh"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -127,8 +127,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/"
-    >умный дом</a> 
+  <a class="article-title" href="/2020/07/30/ssh/"
+    >ssh</a> 
 </h2>
  
 
@@ -136,14 +136,23 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/" class="article-date">
-  <time datetime="2023-01-20T16:33:16.000Z" itemprop="datePublished">2023-01-20</time>
-</a>    
+      <a href="/2020/07/30/ssh/" class="article-date">
+  <time datetime="2020-07-30T00:08:00.000Z" itemprop="datePublished">2020-07-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/debian/">debian</a>
+  </div>
+   
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>Имеем удаленный сервер «host2» с неким приложением, допустим, PostgreSQL server, которое принимает TCP-соединения на порту 5432. При этом вполне логично, что на этом сервере стоит файрвол, который прямых соединений извне на порт 5432 не разрешает, но при этом есть доступ по SSH (по-умолчанию порт 22, рекомендую его изменить). Требуется подключиться с нашего рабочего места «host1» клиентским приложением к серверу PostgreSQL на «host2».</p>
+<p>Для этого на «host1» в консоли набираем:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ssh</span> -L <span class="hljs-number">9999</span>:localhost:<span class="hljs-number">5432</span> host2<br></code></pre></td></tr></table></figure>
+
+<p>Теперь на «host1» мы можем соединяться с PostgreSQL сервером через локальный порт 9999:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">psql</span> -h localhost -p <span class="hljs-number">9999</span> -U postgres<br></code></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
@@ -153,6 +162,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+
     </footer>
   </div>
 
@@ -166,7 +177,7 @@
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">Страница назад</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Страница вперед</a>
+    <a class="extend prev" rel="prev" href="/page/12/">Страница назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/14/">Страница вперед</a>
   </nav>
   
 </section>

@@ -116,7 +116,7 @@
     
     
     <article
-  id="post-умный-дом"
+  id="post-yarn"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -127,8 +127,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/"
-    >умный дом</a> 
+  <a class="article-title" href="/2020/09/13/yarn/"
+    >yarn</a> 
 </h2>
  
 
@@ -136,14 +136,30 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/" class="article-date">
-  <time datetime="2023-01-20T16:33:16.000Z" itemprop="datePublished">2023-01-20</time>
-</a>    
+      <a href="/2020/09/13/yarn/" class="article-date">
+  <time datetime="2020-09-13T16:07:18.000Z" itemprop="datePublished">2020-09-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+   
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>скачиваем ключ</p>
+<pre><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+</code></pre>
+<p>добавляем репозитарий</p>
+<pre><code>echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
+</code></pre>
+<p>обновляем репозитарий</p>
+<pre><code>apt-get update
+</code></pre>
+<p>устанавливаем yarn</p>
+<pre><code>apt-get install yarn
+</code></pre>
+ 
       <!-- reward -->
       
     </div>
@@ -153,6 +169,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yarn/" rel="tag">yarn</a></li></ul>
+
     </footer>
   </div>
 
@@ -166,7 +184,7 @@
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">Страница назад</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Страница вперед</a>
+    <a class="extend prev" rel="prev" href="/page/8/">Страница назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/10/">Страница вперед</a>
   </nav>
   
 </section>

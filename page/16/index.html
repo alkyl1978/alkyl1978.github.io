@@ -116,7 +116,7 @@
     
     
     <article
-  id="post-умный-дом"
+  id="post-rs-local"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -127,8 +127,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/"
-    >умный дом</a> 
+  <a class="article-title" href="/2020/07/07/rs-local/"
+    >rs-local</a> 
 </h2>
  
 
@@ -136,14 +136,64 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/" class="article-date">
-  <time datetime="2023-01-20T16:33:16.000Z" itemprop="datePublished">2023-01-20</time>
+      <a href="/2020/07/07/rs-local/" class="article-date">
+  <time datetime="2020-07-07T23:28:56.000Z" itemprop="datePublished">2020-07-07</time>
 </a>    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>В последних версиях Debian выпилили файл rc.local, который позволяет выполнять произвольные скрипты при запуске системы.<br>Данное решение очень удобно, поэтому запилим его обратно.</p>
+<p>Создадим файл сервиса:</p>
+<pre><code>sudo nano /etc/systemd/system/rc-local.service
+</code></pre>
+<p>Со следующим содержимым:</p>
+<pre><code>[Unit]
+Description=/etc/rc.local
+ConditionPathExists=/etc/rc.local
+
+[Service]
+Type=forking
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99 
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Создадим сам rc.local:</p>
+<pre><code>sudo nano /etc/rc.local
+
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will &quot;exit 0&quot; on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+exit 0
+</code></pre>
+<p>Добавим права на выполнение:</p>
+<pre><code>sudo chmod +x /etc/rc.local
+</code></pre>
+<p>Добавим сервис в автозапуск:</p>
+<pre><code>sudo systemctl enable rc-local
+</code></pre>
+<p>Запускаем сервис:</p>
+<pre><code>sudo systemctl start rc-local
+</code></pre>
+<p>Смотрим состояние сервиса:</p>
+<pre><code>sudo systemctl status rc-local
+</code></pre>
+ 
       <!-- reward -->
       
     </div>
@@ -166,7 +216,7 @@
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">Страница назад</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Страница вперед</a>
+    <a class="extend prev" rel="prev" href="/page/15/">Страница назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/17/">Страница вперед</a>
   </nav>
   
 </section>
