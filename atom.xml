@@ -33,6 +33,12 @@
     
     
     
+    <category term="docker" scheme="http://localhost/categories/docker/"/>
+    
+    <category term="debian" scheme="http://localhost/categories/docker/debian/"/>
+    
+    
+    <category term="docker" scheme="http://localhost/tags/docker/"/>
     
   </entry>
   

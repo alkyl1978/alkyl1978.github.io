@@ -1,9 +1,9 @@
+http://localhost/categories/index.html
 http://localhost/2023/01/23/install-docker/
 http://localhost/2023/01/22/install-goland/
 http://localhost/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/
 http://localhost/2023/01/15/about/
 http://localhost/tags/index.html
-http://localhost/categories/index.html
 http://localhost/friends/index.html
 http://localhost/2023/01/13/hello-world/
 http://localhost/2023/01/13/git_error/
@@ -34,6 +34,7 @@ http://localhost/tags/bekap/
 http://localhost/tags/debian/
 http://localhost/tags/git/
 http://localhost/tags/new/
+http://localhost/tags/docker/
 http://localhost/tags/utils-debian/
 http://localhost/tags/arm-libopencm3/
 http://localhost/tags/arm/
@@ -41,3 +42,5 @@ http://localhost/tags/openwrt/
 http://localhost/tags/%D1%81%D1%80%D0%B5%D0%B4%D0%B0-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8-arm/
 http://localhost/tags/nodejs/
 http://localhost/tags/tar-debian/
+http://localhost/categories/docker/
+http://localhost/categories/docker/debian/

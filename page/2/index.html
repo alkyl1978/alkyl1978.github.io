@@ -72,7 +72,7 @@
       <h1><a href="/">Записки на память</a></h1>
       <div id="subtitle-box">
         
-        <span id="subtitle"></span>
+          <span id="subtitle"></span>
         
       </div>
       <div>
@@ -87,26 +87,9 @@
 
 
 
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
 
 <!-- Subtitle -->
 
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['1', '2', '3'],
-        startDelay: 0,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
 <div id="main">
   <section class="outer">
   
@@ -168,8 +151,6 @@
   </div>
 
    
-   
-  
 </article>
 
     
@@ -229,8 +210,6 @@
   </div>
 
    
-   
-  
 </article>
 
     
@@ -281,8 +260,6 @@
   </div>
 
    
-   
-  
 </article>
 
     
@@ -337,8 +314,6 @@
   </div>
 
    
-   
-  
 </article>
 
     
@@ -456,8 +431,6 @@ v10.16.2
   </div>
 
    
-   
-  
 </article>
 
     
@@ -553,8 +526,6 @@ exit 0
   </div>
 
    
-   
-  
 </article>
 
     
@@ -603,8 +574,6 @@ exit 0
   </div>
 
    
-   
-  
 </article>
 
     
@@ -661,8 +630,6 @@ exit 0
   </div>
 
    
-   
-  
 </article>
 
     
@@ -711,8 +678,6 @@ exit 0
   </div>
 
    
-   
-  
 </article>
 
     
@@ -761,8 +726,6 @@ exit 0
   </div>
 
    
-   
-  
 </article>
 
     
@@ -789,23 +752,6 @@ exit 0
     </ul>
     <ul>
       <li>
-        
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
         
       </li>
     </ul>
@@ -1102,45 +1048,7 @@ exit 0
   }
 </script>
 
-
     
-    
-<script>
-  const password = "123456";
-  const lock_password = window.sessionStorage.getItem("lock_password");
-  console.log(password, lock_password);
-  if (lock_password !== password) {
-    Swal.fire({
-      title: "Please enter password",
-      input: "text",
-      inputAttributes: {
-        autocapitalize: "off",
-      },
-      showCancelButton: false,
-      showLoaderOnConfirm: true,
-      allowOutsideClick: false,
-      confirmButtonText: "Ok",
-    }).then((result) => {
-      console.log(result);
-      if (result.isConfirmed) {
-        console.log(password);
-        if (result.value === password) {
-          window.sessionStorage.setItem("lock_password", result.value);
-        } else {
-          Swal.fire({
-            icon: "error",
-            title: "Incorrect password, please try again",
-            confirmButtonText: "Ok",
-            allowOutsideClick: false,
-          }).then(() => {
-            window.location.reload();
-          });
-        }
-      }
-    });
-  }
-</script>
-
 
   </div>
 </body>
