@@ -7,6 +7,8 @@
     <head>
       <meta charset="utf-8" />
         
+      <meta name="description" content="Сохраненые заметки" />
+      
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
@@ -159,7 +161,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADMElEQVR42u3awW4iQQwE0Pz/T7NSTruKwlbZg8Q0r0+IwMy85uDY1V9f8Xp8r79f/3zn5+vnV/vtk/nVnl/ngoWNjY19E/bj6cpvkFwh/+Rvd3z+TmLBxsbGPpW9L1oJIGEkZSzZ3P/cBRsbG/sj2dHl1k1IUiaTHwMbGxsbuy0h+ZgpHwYl18TGxsbGzodKVxWh/Fvt9r1kloaNjY399uxZ0Puer1+eb2NjY2O/GftRruQ2s4eehbuzhY2NjX0S+7LQdF1U2oHUBYEENjY29hHsfBzTlrTZIZ5ZwJAPuf6p29jY2NgHsdtjlLPGI7/C/ghR0YRgY2Nj35ydA64tPHlY27Yf7eEhbGxs7DPY+3HSpj1o75KUvVX1xsbGxr45O28/kr/O2oZ8yLVpgbCxsbHPYM/G/TN8vgWzYz2rw5fY2NjYt2XPYtRNePCKkKD9SbCxsbHPY+flpH3cdjw024LhUAkbGxv7IPamgOUNSTuiagPj+ogPNjY29kHsPILdhwTtRswY9XEfbGxs7IPYbUOSNy35A20ajzrlxsbGxr45exaabuLhdnjUNkUXNx7Y2NjYb89uY9SkBrZDoryNSQphfhdsbGzss9ltg5G3HMkwqC2Nm6gYGxsb++7sdhCfBK5JYWsP/eSzseKwDjY2NvZB7LwBmDUwm5i2bV2i0ouNjY19EHvzb/1s/JSnzbMjO0nci42NjX0qO28n8sM97SfbbZ2VNGxsbOyT2O0QJ29IZoeEripsdTyAjY2NfVt2/q98Esq2hSfPott38lKHjY2NfQa7DU3z+Db/Vv663da6lmJjY2Pfil3Xt+DRZ4P7fMva4RQ2Njb2p7HbYjOLYK8aCbUxAzY2NvZ57HaoNCwYZcnchAez+BkbGxv7vuxHuTYR7z4MSLYjKp/Y2NjYB7Hz1RaVJPr9Gq22rGJjY2N/Ars9fNPGrpvGI6e2UTQ2Njb2eex9NLt/oMtOISUFGBsbG/sj2e0Rn1kkvA+Do3EVNjY29gez83FSG/G2IXFSLC9oRbCxsbFvwt5cdPaZfWyctzTFLmJjY2PfkL2JV9vAIC9OSTNzVVyNjY2NfVv2H7nS7TmEVRkSAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwUlEQVR42u3awW7bQAwEUP//T7tA0UOLxPYMuXJc4OkU2LKkp8MuM+TtFh/338fXT/4+2m/bu7e/uuHh4eFdxrs/PR7dIIGden1fz0meGQ8PD+9q3vNbvrjEg/MTTP6Ckuvj4eHhfRov2U6Smvb5NZPr4+Hh4f1fvLxoTsri6BHfuTHg4eHhxbx8Ib7Hxyxf/bGsBQ8PD29+31u7Sbz/7wv7e3h4eHiLrnq+4LZhQf7tbEP68ys8PDy8C3htzLpfuGcjAu0uMEyR8fDw8AJeu9yfGjVoN6F8w/jnWzw8PLwLeO3ynTer8uGATSDSjoXh4eHh7Xn5opwX3y34bGT8zb6Hh4eHdwGvLaPzlv9mEKHNE6JpMjw8PLxDvLbwbaOBWUmdRBhRjIuHh4d3lFcssqPwND9nsy2tunx4eHh46/VzX163cXAezs7iXTw8PLyzvE0x3Q4EtOX1no2Hh4f3Tt5mBKptXJ3a06KZMjw8PLxDCWr7g7z1lZfpZ4cG8PDw8N7Jy8cCkk9afFtAJ68JDw8P7ywvv+Xs0WfXbMvoFzEuHh4e3tt5bSB7KorNQ+SHLwgPDw/vAt4sJpgt+kmUkHye3xcPDw/vCt5s4d4EFu0gFx4eHt5n8pJFvy279y+uTqMf5dN4eHh4R3n5P/mzKLYdz5qNW70ITfDw8PCO8vIyd9bgTwrr2djWgQYYHh4e3prXtp3yWHYWbWzOjFJkPDw8vBEv75K1N9sv7qfabHh4eHhneffyaEejnj9uHg0nocmLBhgeHh7eId6m/mxj3/bh2g2j3vfw8PDwFrw2YG1HB/KNZB/y4uHh4b2Tl4cR7SYxa6S1YUT9NR4eHt5beLOFOzkzaXoNB7Pw8PDwPoY3a+fnkeuM/c3neHh4eJfxToURye1PxRM/kLXg4eHhjRpgmwfdbzzJ664PPDw8vJT3C6Etu2BIWpKfAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 

@@ -3,11 +3,11 @@
   <title>Записки на память</title>
   
   
-  <link href="https://alkyl1978.github.io/atom.xml" rel="self"/>
+  <link href="http://localhost/atom.xml" rel="self"/>
   
-  <link href="https://alkyl1978.github.io/"/>
+  <link href="http://localhost/"/>
   <updated>2023-01-23T18:12:49.000Z</updated>
-  <id>https://alkyl1978.github.io/</id>
+  <id>http://localhost/</id>
   
   <author>
     <name>aleks kylikov</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>install docker</title>
-    <link href="https://alkyl1978.github.io/2023/01/23/install-docker/"/>
-    <id>https://alkyl1978.github.io/2023/01/23/install-docker/</id>
+    <link href="http://localhost/2023/01/23/install-docker/"/>
+    <id>http://localhost/2023/01/23/install-docker/</id>
     <published>2023-01-23T18:12:49.000Z</published>
     <updated>2023-01-23T18:12:49.000Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>install goland</title>
-    <link href="https://alkyl1978.github.io/2023/01/22/install-goland/"/>
-    <id>https://alkyl1978.github.io/2023/01/22/install-goland/</id>
+    <link href="http://localhost/2023/01/22/install-goland/"/>
+    <id>http://localhost/2023/01/22/install-goland/</id>
     <published>2023-01-22T21:04:33.000Z</published>
     <updated>2023-01-22T21:04:33.000Z</updated>
     
@@ -59,8 +59,8 @@
   
   <entry>
     <title>умный дом</title>
-    <link href="https://alkyl1978.github.io/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/"/>
-    <id>https://alkyl1978.github.io/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/</id>
+    <link href="http://localhost/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/"/>
+    <id>http://localhost/2023/01/20/%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%BC/</id>
     <published>2023-01-20T16:33:16.000Z</published>
     <updated>2023-01-20T16:33:16.000Z</updated>
     
@@ -72,8 +72,8 @@
   
   <entry>
     <title>about</title>
-    <link href="https://alkyl1978.github.io/2023/01/15/about/"/>
-    <id>https://alkyl1978.github.io/2023/01/15/about/</id>
+    <link href="http://localhost/2023/01/15/about/"/>
+    <id>http://localhost/2023/01/15/about/</id>
     <published>2023-01-15T15:54:33.000Z</published>
     <updated>2023-01-15T15:54:33.000Z</updated>
     
@@ -93,8 +93,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://alkyl1978.github.io/2023/01/13/hello-world/"/>
-    <id>https://alkyl1978.github.io/2023/01/13/hello-world/</id>
+    <link href="http://localhost/2023/01/13/hello-world/"/>
+    <id>http://localhost/2023/01/13/hello-world/</id>
     <published>2023-01-13T12:22:00.000Z</published>
     <updated>2023-01-13T12:22:00.000Z</updated>
     
@@ -110,14 +110,14 @@
     
     
     
-    <category term="new" scheme="https://alkyl1978.github.io/tags/new/"/>
+    <category term="new" scheme="http://localhost/tags/new/"/>
     
   </entry>
   
   <entry>
     <title>устранение некоторых ошибок в git</title>
-    <link href="https://alkyl1978.github.io/2023/01/13/git_error/"/>
-    <id>https://alkyl1978.github.io/2023/01/13/git_error/</id>
+    <link href="http://localhost/2023/01/13/git_error/"/>
+    <id>http://localhost/2023/01/13/git_error/</id>
     <published>2023-01-13T09:07:00.000Z</published>
     <updated>2023-01-13T09:07:00.000Z</updated>
     
@@ -133,14 +133,14 @@
     
     
     
-    <category term="git" scheme="https://alkyl1978.github.io/tags/git/"/>
+    <category term="git" scheme="http://localhost/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>применение aws в яндекс облаке</title>
-    <link href="https://alkyl1978.github.io/2021/01/28/aws-yandex/"/>
-    <id>https://alkyl1978.github.io/2021/01/28/aws-yandex/</id>
+    <link href="http://localhost/2021/01/28/aws-yandex/"/>
+    <id>http://localhost/2021/01/28/aws-yandex/</id>
     <published>2021-01-28T00:00:00.000Z</published>
     <updated>2021-01-28T00:00:00.000Z</updated>
     
@@ -156,14 +156,14 @@
     
     
     
-    <category term="aws" scheme="https://alkyl1978.github.io/tags/aws/"/>
+    <category term="aws" scheme="http://localhost/tags/aws/"/>
     
   </entry>
   
   <entry>
     <title>бекап инкриментный</title>
-    <link href="https://alkyl1978.github.io/2021/01/09/bekap/"/>
-    <id>https://alkyl1978.github.io/2021/01/09/bekap/</id>
+    <link href="http://localhost/2021/01/09/bekap/"/>
+    <id>http://localhost/2021/01/09/bekap/</id>
     <published>2021-01-09T00:00:00.000Z</published>
     <updated>2021-01-09T00:00:00.000Z</updated>
     
@@ -178,14 +178,14 @@
     
     
     
-    <category term="bekap" scheme="https://alkyl1978.github.io/tags/bekap/"/>
+    <category term="bekap" scheme="http://localhost/tags/bekap/"/>
     
   </entry>
   
   <entry>
     <title>yarn</title>
-    <link href="https://alkyl1978.github.io/2020/09/13/yarn/"/>
-    <id>https://alkyl1978.github.io/2020/09/13/yarn/</id>
+    <link href="http://localhost/2020/09/13/yarn/"/>
+    <id>http://localhost/2020/09/13/yarn/</id>
     <published>2020-09-13T16:07:18.000Z</published>
     <updated>2020-09-13T16:07:18.000Z</updated>
     
@@ -203,14 +203,14 @@
     
     
     
-    <category term="nodejs" scheme="https://alkyl1978.github.io/tags/nodejs/"/>
+    <category term="nodejs" scheme="http://localhost/tags/nodejs/"/>
     
   </entry>
   
   <entry>
     <title>openwrt imagebinder</title>
-    <link href="https://alkyl1978.github.io/2020/08/25/openwrt-imagebinder/"/>
-    <id>https://alkyl1978.github.io/2020/08/25/openwrt-imagebinder/</id>
+    <link href="http://localhost/2020/08/25/openwrt-imagebinder/"/>
+    <id>http://localhost/2020/08/25/openwrt-imagebinder/</id>
     <published>2020-08-25T09:43:33.000Z</published>
     <updated>2020-08-25T09:43:33.000Z</updated>
     
@@ -225,14 +225,14 @@
     
     
     
-    <category term="openwrt" scheme="https://alkyl1978.github.io/tags/openwrt/"/>
+    <category term="openwrt" scheme="http://localhost/tags/openwrt/"/>
     
   </entry>
   
   <entry>
     <title>Zyxel kenetic</title>
-    <link href="https://alkyl1978.github.io/2020/08/15/Zyxel-kenetic/"/>
-    <id>https://alkyl1978.github.io/2020/08/15/Zyxel-kenetic/</id>
+    <link href="http://localhost/2020/08/15/Zyxel-kenetic/"/>
+    <id>http://localhost/2020/08/15/Zyxel-kenetic/</id>
     <published>2020-08-15T00:44:17.000Z</published>
     <updated>2020-08-15T00:44:17.000Z</updated>
     
@@ -247,14 +247,14 @@
     
     
     
-    <category term="router" scheme="https://alkyl1978.github.io/tags/router/"/>
+    <category term="router" scheme="http://localhost/tags/router/"/>
     
   </entry>
   
   <entry>
     <title>zte modem</title>
-    <link href="https://alkyl1978.github.io/2020/08/13/zte-modem/"/>
-    <id>https://alkyl1978.github.io/2020/08/13/zte-modem/</id>
+    <link href="http://localhost/2020/08/13/zte-modem/"/>
+    <id>http://localhost/2020/08/13/zte-modem/</id>
     <published>2020-08-13T23:59:13.000Z</published>
     <updated>2020-08-13T23:59:13.000Z</updated>
     
@@ -274,8 +274,8 @@
   
   <entry>
     <title>ssh</title>
-    <link href="https://alkyl1978.github.io/2020/07/30/ssh/"/>
-    <id>https://alkyl1978.github.io/2020/07/30/ssh/</id>
+    <link href="http://localhost/2020/07/30/ssh/"/>
+    <id>http://localhost/2020/07/30/ssh/</id>
     <published>2020-07-30T00:08:04.000Z</published>
     <updated>2020-07-30T00:08:04.000Z</updated>
     
@@ -294,8 +294,8 @@
   
   <entry>
     <title>kill</title>
-    <link href="https://alkyl1978.github.io/2020/07/29/kill/"/>
-    <id>https://alkyl1978.github.io/2020/07/29/kill/</id>
+    <link href="http://localhost/2020/07/29/kill/"/>
+    <id>http://localhost/2020/07/29/kill/</id>
     <published>2020-07-29T22:33:52.000Z</published>
     <updated>2020-07-29T22:33:52.000Z</updated>
     
@@ -310,14 +310,14 @@
     
     
     
-    <category term="utils, debian" scheme="https://alkyl1978.github.io/tags/utils-debian/"/>
+    <category term="utils, debian" scheme="http://localhost/tags/utils-debian/"/>
     
   </entry>
   
   <entry>
     <title>nvm</title>
-    <link href="https://alkyl1978.github.io/2020/07/07/nvm/"/>
-    <id>https://alkyl1978.github.io/2020/07/07/nvm/</id>
+    <link href="http://localhost/2020/07/07/nvm/"/>
+    <id>http://localhost/2020/07/07/nvm/</id>
     <published>2020-07-07T23:31:10.000Z</published>
     <updated>2020-07-07T23:31:10.000Z</updated>
     
@@ -337,8 +337,8 @@
   
   <entry>
     <title>rs-local</title>
-    <link href="https://alkyl1978.github.io/2020/07/07/rs-local/"/>
-    <id>https://alkyl1978.github.io/2020/07/07/rs-local/</id>
+    <link href="http://localhost/2020/07/07/rs-local/"/>
+    <id>http://localhost/2020/07/07/rs-local/</id>
     <published>2020-07-07T23:28:56.000Z</published>
     <updated>2020-07-07T23:28:56.000Z</updated>
     
@@ -357,8 +357,8 @@
   
   <entry>
     <title>lm4f tiva</title>
-    <link href="https://alkyl1978.github.io/2020/07/02/lm4f-tiva/"/>
-    <id>https://alkyl1978.github.io/2020/07/02/lm4f-tiva/</id>
+    <link href="http://localhost/2020/07/02/lm4f-tiva/"/>
+    <id>http://localhost/2020/07/02/lm4f-tiva/</id>
     <published>2020-07-02T18:30:00.000Z</published>
     <updated>2020-07-02T18:30:00.000Z</updated>
     
@@ -374,14 +374,14 @@
     
     
     
-    <category term="arm" scheme="https://alkyl1978.github.io/tags/arm/"/>
+    <category term="arm" scheme="http://localhost/tags/arm/"/>
     
   </entry>
   
   <entry>
     <title>platformio</title>
-    <link href="https://alkyl1978.github.io/2020/07/02/platformio/"/>
-    <id>https://alkyl1978.github.io/2020/07/02/platformio/</id>
+    <link href="http://localhost/2020/07/02/platformio/"/>
+    <id>http://localhost/2020/07/02/platformio/</id>
     <published>2020-07-02T18:14:59.000Z</published>
     <updated>2020-07-02T18:14:59.000Z</updated>
     
@@ -397,14 +397,14 @@
     
     
     
-    <category term="среда разработки arm" scheme="https://alkyl1978.github.io/tags/%D1%81%D1%80%D0%B5%D0%B4%D0%B0-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8-arm/"/>
+    <category term="среда разработки arm" scheme="http://localhost/tags/%D1%81%D1%80%D0%B5%D0%B4%D0%B0-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8-arm/"/>
     
   </entry>
   
   <entry>
     <title>libopencm3</title>
-    <link href="https://alkyl1978.github.io/2020/07/02/libopencm3/"/>
-    <id>https://alkyl1978.github.io/2020/07/02/libopencm3/</id>
+    <link href="http://localhost/2020/07/02/libopencm3/"/>
+    <id>http://localhost/2020/07/02/libopencm3/</id>
     <published>2020-07-02T17:55:48.000Z</published>
     <updated>2020-07-02T17:55:48.000Z</updated>
     
@@ -419,14 +419,14 @@
     
     
     
-    <category term="arm libopencm3" scheme="https://alkyl1978.github.io/tags/arm-libopencm3/"/>
+    <category term="arm libopencm3" scheme="http://localhost/tags/arm-libopencm3/"/>
     
   </entry>
   
   <entry>
     <title>ESP8266</title>
-    <link href="https://alkyl1978.github.io/2020/06/10/ESP8266/"/>
-    <id>https://alkyl1978.github.io/2020/06/10/ESP8266/</id>
+    <link href="http://localhost/2020/06/10/ESP8266/"/>
+    <id>http://localhost/2020/06/10/ESP8266/</id>
     <published>2020-06-10T23:49:44.000Z</published>
     <updated>2020-06-10T23:49:44.000Z</updated>
     
@@ -441,7 +441,7 @@
     
     
     
-    <category term="ESP8266" scheme="https://alkyl1978.github.io/tags/ESP8266/"/>
+    <category term="ESP8266" scheme="http://localhost/tags/ESP8266/"/>
     
   </entry>
   
