@@ -86,3 +86,4 @@ steps:
       to: 
         from_secret: to_telegram_user
       message: #success {{build.status}}
+      document: "public/README.md"
