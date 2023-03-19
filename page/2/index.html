@@ -251,18 +251,22 @@
      
     <div class="article-meta">
       <a href="/2020/07/30/ssh/" class="article-date">
-  <time datetime="2020-07-30T00:08:04.000Z" itemprop="datePublished">2020-07-30</time>
-</a>    
+  <time datetime="2020-07-30T00:08:00.000Z" itemprop="datePublished">2020-07-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/debian/">debian</a>
+  </div>
+   
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
   <p>Имеем удаленный сервер «host2» с неким приложением, допустим, PostgreSQL server, которое принимает TCP-соединения на порту 5432. При этом вполне логично, что на этом сервере стоит файрвол, который прямых соединений извне на порт 5432 не разрешает, но при этом есть доступ по SSH (по-умолчанию порт 22, рекомендую его изменить). Требуется подключиться с нашего рабочего места «host1» клиентским приложением к серверу PostgreSQL на «host2».</p>
 <p>Для этого на «host1» в консоли набираем:</p>
-<p>host1# ssh -L 9999:localhost:5432 host2</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ssh</span> -L <span class="hljs-number">9999</span>:localhost:<span class="hljs-number">5432</span> host2<br></code></pre></td></tr></table></figure>
+
 <p>Теперь на «host1» мы можем соединяться с PostgreSQL сервером через локальный порт 9999:</p>
-<p>host1# psql -h localhost -p 9999 -U postgres</p>
- 
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">psql</span> -h localhost -p <span class="hljs-number">9999</span> -U postgres<br></code></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
@@ -272,6 +276,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li></ul>
+
     </footer>
   </div>
 
@@ -355,7 +361,7 @@
      
     <div class="article-meta">
       <a href="/2020/07/07/nvm/" class="article-date">
-  <time datetime="2020-07-07T23:31:10.000Z" itemprop="datePublished">2020-07-07</time>
+  <time datetime="2020-07-07T23:31:00.000Z" itemprop="datePublished">2020-07-07</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
@@ -365,21 +371,18 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Как установить и управлять NodeJS с помощью NVM</p>
+  <h4 id="Как-установить-и-управлять-NodeJS-с-помощью-NVM"><a href="#Как-установить-и-управлять-NodeJS-с-помощью-NVM" class="headerlink" title="Как установить и управлять NodeJS с помощью NVM"></a>Как установить и управлять NodeJS с помощью NVM</h4><p><strong>Содержание:</strong></p>
+<p><a href="#install">Установка NVM</a></p>
 <p>NVM, также известный как Node Version Manager, это аналог RVM (Ruby Version manager) для языка Ruby. NVM позволяет устанавливать и управлять множеством версий NodeJS в рамках одной системы, а также использовать определенную версию для приложения.</p>
 <p>В этой статье я расскажу как установить и управлять NodeJS с помощью NVM.</p>
-<p>По умолчанию NVM устанавливается в домашнюю директорию текущего пользователя. поэтому установленные версии nodejs с помощью nvm одного пользователя будут недоступны другим пользователям. Пользователи Windows могут прочитать как установить NodeJS в Windows системах.<br>Шаг 1 - Установка NVM</p>
-<p>Сначала вы должны установить NVM в систему. Разработчики NVM подготовили для этого Bash скрипт-установщик. Используйте эту,чтобы установитьNVM:</p>
-<pre><code>curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-</code></pre>
+<p>По умолчанию NVM устанавливается в домашнюю директорию текущего пользователя. поэтому установленные версии nodejs с помощью nvm одного пользователя будут недоступны другим пользователям. Пользователи Windows могут прочитать как установить NodeJS в Windows системах.</p>
+<h5 id="Установка-NVM"><a href="#Установка-NVM" class="headerlink" title=" Установка NVM"></a><a name="install"></a> Установка NVM</h5><p>Сначала вы должны установить NVM в систему. Разработчики NVM подготовили для этого Bash скрипт-установщик. Используйте эту,чтобы установитьNVM:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl https:<span class="hljs-regexp">//</span>raw.githubusercontent.com<span class="hljs-regexp">/creationix/</span>nvm<span class="hljs-regexp">/master/i</span>nstall.sh | bash<br></code></pre></td></tr></table></figure>
+
 <p>После чего надо обновить системные переменные с помощью команд ниже, иначе потребуется перезапуск сеанса (или переподключение по SSH).</p>
-<pre><code>source ~/.profile ## Для Debian/Ubuntu и подобных
-source ~/.bashrc ## Для CentOS/RHEL 
-</code></pre>
-<p>Шаг 2 - Список доступных версий NodeJS</p>
-<p>Теперь, когда вы установили nvm, вы можете использовать его. Но для начала нужно установить какую-либо версию NodeJS. С помощью опции ls-remote вы можете просмотреть список доступных версий</p>
-<pre><code>nvm ls-remote
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.profile <span class="hljs-comment">## Для Debian/Ubuntu и подобных</span><br><span class="hljs-built_in">source</span> ~/.bashrc <span class="hljs-comment">## Для CentOS/RHEL </span><br></code></pre></td></tr></table></figure>
+<h5 id="Список-доступных-версий-NodeJS"><a href="#Список-доступных-версий-NodeJS" class="headerlink" title="Список доступных версий NodeJS"></a><a name="list"></a>Список доступных версий NodeJS</h5><p>Теперь, когда вы установили nvm, вы можете использовать его. Но для начала нужно установить какую-либо версию NodeJS. С помощью опции ls-remote вы можете просмотреть список доступных версий</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">nvm ls-remote</span><br></code></pre></td></tr></table></figure>
 <p>В результате вы увидите длинный список доступных версий.</p>
 <pre><code>...
 ...
@@ -393,14 +396,13 @@ v12.11.0
 v12.11.1
 v12.12.0
 </code></pre>
-<p>Шаг 3 - Установка NodeJS с помощью NVM</p>
-<p>Выберите версию из списка выше, которая вам нужна и установите ее. В этом примере я буду использовать LTS версию v10.16.3:</p>
+<h5 id="Установка-NodeJS-с-помощью-NVM"><a href="#Установка-NodeJS-с-помощью-NVM" class="headerlink" title=" Установка NodeJS с помощью NVM"></a><a name="node"></a> Установка NodeJS с помощью NVM</h5><p>Выберите версию из списка выше, которая вам нужна и установите ее. В этом примере я буду использовать LTS версию v10.16.3:</p>
 <pre><code>nvm install v10.16.3
 </code></pre>
 <p>И дополнительно установлю актуальную версию</p>
 <pre><code>nvm install v12.12.0
 </code></pre>
-<p>Повторяя команду с нужными версиями установите все необходимые вам версии NodeJS.<br>Шаг 4 - Установка версии по умолчанию</p>
+<p>Повторяя команду с нужными версиями установите все необходимые вам версии NodeJS.<br>#####<a name="default"></a> Установка версии по умолчанию</p>
 <p>После того, как вы установите несколько версий, вы должны выбрать какая версия будет использоваться по умолчанию (для вариантов, когда нет четкого указания на нужную версию). С помощью команды ниже вы можете проверить список установленных версий и какая из них указана как версия по умолчанию.</p>
 <pre><code>nvm list
 
@@ -426,8 +428,7 @@ lts/dubnium -&gt; v10.16.3
 
 v10.16.2
 </code></pre>
-<p>Шаг 5 - Запуск приложения с определенной версией NodeJS</p>
-<p>Когда у вас много приложений и вы хотите для каждого из них указать свою определенную версию, то вы можете использовать следующую команду nvm, к примеру запуск приложения app.js в версии 10.16.3</p>
+<h5 id="Запуск-приложения-с-определенной-версией-NodeJS"><a href="#Запуск-приложения-с-определенной-версией-NodeJS" class="headerlink" title="Запуск приложения с определенной версией NodeJS"></a>Запуск приложения с определенной версией NodeJS</h5><p>Когда у вас много приложений и вы хотите для каждого из них указать свою определенную версию, то вы можете использовать следующую команду nvm, к примеру запуск приложения app.js в версии 10.16.3</p>
 <pre><code>nvm run v10.16.3 app.js
 </code></pre>
 <p>Шаг 6 - Удаление неиспользуемых версий NodeJS</p>
