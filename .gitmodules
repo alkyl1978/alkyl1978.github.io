@@ -1,4 +1,4 @@
 [submodule "themes/ayer"]
   path = themes/ayer
-  url = ssh://git@git.lp76.ru:22/aleks/hexo-theme-ayer.git
+  url = https://git.lp76.ru/aleks/hexo-theme-ayer.git
   branch = master
