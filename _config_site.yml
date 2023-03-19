@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://localhost/
+url: https://lp76.ru/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -125,19 +125,3 @@ readmeConfig:
   postsHeader: '## My posts' # headers, support markdown
   sort: 'desc' # posts display sort: 'desc' or 'acs'. The default option is 'desc'
   groupType: 'month' # 'month' or 'year' or 'none'. The default option is 'month'
-
-#admin:
-#  username: admin
-#  password_hash: be121740bf988b2225a313fa1f107ca1
-#  secret: admin
-# hexo-admin authentification
-admin:
-  username: admin
-  password_hash: $2a$10$PQdt/uWY9dZFBRrk2zpHGOlpgyI9TB8TjIQ46GCCOCsDIlnC6MSMS
-  secret: my sup1234423er secret phrase
-
-deploy:
-  type: git
-  repo: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
-  # example, https://github.com/hexojs/hexojs.github.io
-  branch: gh-pages

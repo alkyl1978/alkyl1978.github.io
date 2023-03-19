@@ -22,12 +22,13 @@ steps:
       bucket: drone-cache
       region: ru-central1
       mount: 'node_modules'
-  - name: run-sh
+  - name: run-sh-github
     image: node:alpine
     commands: 
+    - rm _config.yml
+    - mv _config_github.yml _config.yml
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
-    - env
   - name: push gh-pages
     image: appleboy/drone-git-push
     settings:
@@ -37,6 +38,29 @@ steps:
       ssh_key:
         from_secret: ssh_key_github
       force: true
+  - name: run-sh-lp76.ru
+    image: node:alpine
+    commands:
+    - rm _config.yml
+    - mv _config_site.yml _config.yml
+    - ./bin/run.sh
+  - name: docker
+    image: plugins/docker
+    settings:
+      username: oauth
+      password:
+        from_secret: docker_plugin_key
+      repo: cr.yandex/crpu0i3q8v54vgieicbm/site
+      tags:
+        - ${DRONE_TARGET_BRANCH}
+        - ${DRONE_COMMIT_SHA:0:7}
+        - "latest"
+      registry: cr.yandex
+      use_cache: true
+      when:
+      event:
+        - pull_request
+        - push
   - name: rebuild-cache
     image: meltwater/drone-cache:dev
     environment:
