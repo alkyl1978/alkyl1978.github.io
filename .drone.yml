@@ -85,6 +85,9 @@ steps:
         from_secret: gitea_key
       base_url: https://git.lp76.ru
       files: public/README.md
+    when:
+       event:
+         - tag
   - name: telegram
     image: appleboy/drone-telegram
     settings:
