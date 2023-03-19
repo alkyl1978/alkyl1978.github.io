@@ -121,3 +121,11 @@ auto_category:
 category_generator:
   per_page: 10
   order_by: -date
+
+plugins:
+- hexo-generator-robotstxt
+
+robotstxt:
+  useragent: "*"
+  sitemap: /sitemap.xml
+  
