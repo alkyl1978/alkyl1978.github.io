@@ -101,24 +101,6 @@
   </url>
   
   <url>
-    <loc>http://localhost/2020/09/13/yarn/</loc>
-    
-    <lastmod>2020-09-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost/2020/08/25/openwrt-imagebinder/</loc>
-    
-    <lastmod>2020-08-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://localhost/2020/08/15/Zyxel-kenetic/</loc>
     
     <lastmod>2020-08-15</lastmod>
@@ -317,6 +299,13 @@
   </url>
   
   <url>
+    <loc>http://localhost/tags/goland/</loc>
+    <lastmod>2023-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost/tags/utils-debian/</loc>
     <lastmod>2023-03-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -338,7 +327,7 @@
   </url>
   
   <url>
-    <loc>http://localhost/tags/openwrt/</loc>
+    <loc>http://localhost/tags/nodejs/</loc>
     <lastmod>2023-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -346,13 +335,6 @@
   
   <url>
     <loc>http://localhost/tags/%D1%81%D1%80%D0%B5%D0%B4%D0%B0-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8-arm/</loc>
-    <lastmod>2023-03-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost/tags/nodejs/</loc>
     <lastmod>2023-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -375,7 +357,21 @@
   </url>
   
   <url>
+    <loc>http://localhost/categories/debian/</loc>
+    <lastmod>2023-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost/categories/docker/debian/</loc>
+    <lastmod>2023-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost/categories/nodejs/</loc>
     <lastmod>2023-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

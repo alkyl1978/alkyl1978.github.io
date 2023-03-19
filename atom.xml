@@ -60,6 +60,10 @@
     
     
     
+    <category term="debian" scheme="http://localhost/categories/debian/"/>
+    
+    
+    <category term="goland" scheme="http://localhost/tags/goland/"/>
     
   </entry>
   
@@ -189,53 +193,6 @@
   </entry>
   
   <entry>
-    <title>yarn</title>
-    <link href="http://localhost/2020/09/13/yarn/"/>
-    <id>http://localhost/2020/09/13/yarn/</id>
-    <published>2020-09-13T16:07:18.000Z</published>
-    <updated>2020-09-13T16:07:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>скачиваем ключ</p><pre><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</code></pre><p>добавляем репозитарий</p><pre><code>echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list</code></pre><p>обновляем репозитарий</p><pre><code>apt-get update</code></pre><p>устанавливаем yarn</p><pre><code>apt-get install yarn</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;скачиваем ключ&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;добавляем репозитар</summary>
-      
-    
-    
-    
-    
-    <category term="nodejs" scheme="http://localhost/tags/nodejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>openwrt imagebinder</title>
-    <link href="http://localhost/2020/08/25/openwrt-imagebinder/"/>
-    <id>http://localhost/2020/08/25/openwrt-imagebinder/</id>
-    <published>2020-08-25T09:43:33.000Z</published>
-    <updated>2020-08-25T09:43:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<h6 id="обновляем-пакеты"><a href="#обновляем-пакеты" class="headerlink" title="обновляем пакеты"></a>обновляем пакеты</h6><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure><h6 id="устанавливаем-нужные-пакеты"><a href="#устанавливаем-нужные-пакеты" class="headerlink" title="устанавливаем нужные пакеты"></a>устанавливаем нужные пакеты</h6><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">sudo apt-<span class="hljs-built_in">get</span> install build-essential libncurses5-<span class="hljs-built_in">dev</span> libncursesw5-<span class="hljs-built_in">dev</span> zlib1g-<span class="hljs-built_in">dev</span> gawk git gettext libssl-<span class="hljs-built_in">dev</span> xsltproc wget unzip python<br></code></pre></td></tr></table></figure><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget &lt;https:<span class="hljs-regexp">//</span>downloads.openwrt.org<span class="hljs-regexp">/releases/</span><span class="hljs-number">18.06</span>.<span class="hljs-number">5</span><span class="hljs-regexp">/targets/</span>ramips<span class="hljs-regexp">/rt305x/</span>openwrt-imagebuilder-<span class="hljs-number">18.06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz&gt;<br></code></pre></td></tr></table></figure><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -xf openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz<br></code></pre></td></tr></table></figure><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">rm</span> openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz<br></code></pre></td></tr></table></figure><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64<br></code></pre></td></tr></table></figure><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">make image <span class="hljs-attribute">PROFILE</span>=nbg-419n -j3<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h6 id=&quot;обновляем-пакеты&quot;&gt;&lt;a href=&quot;#обновляем-пакеты&quot; class=&quot;headerlink&quot; title=&quot;обновляем пакеты&quot;&gt;&lt;/a&gt;обновляем пакеты&lt;/h6&gt;&lt;figure class=&quot;hi</summary>
-      
-    
-    
-    
-    
-    <category term="openwrt" scheme="http://localhost/tags/openwrt/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Zyxel kenetic</title>
     <link href="http://localhost/2020/08/15/Zyxel-kenetic/"/>
     <id>http://localhost/2020/08/15/Zyxel-kenetic/</id>
@@ -338,6 +295,10 @@
     
     
     
+    <category term="nodejs" scheme="http://localhost/categories/nodejs/"/>
+    
+    
+    <category term="nodejs" scheme="http://localhost/tags/nodejs/"/>
     
   </entry>
   
@@ -448,6 +409,50 @@
     
     
     <category term="ESP8266" scheme="http://localhost/tags/ESP8266/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Создание архива tar</title>
+    <link href="http://localhost/2020/06/10/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D0%B0-tar/"/>
+    <id>http://localhost/2020/06/10/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B0%D1%80%D1%85%D0%B8%D0%B2%D0%B0-tar/</id>
+    <published>2020-06-10T22:47:17.000Z</published>
+    <updated>2020-06-10T22:47:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Архиватор Tar в Linux.<br>Архив tar может быть сжат в gzip. Формат тогда будет выглядеть так - tar.gz</p><p>Как создать архив tar в FreeBSD:</p><pre><code>tar -cvf archive.tar /var/db/mysql/*</code></pre><p>c — create - создание архива<br>v — verbose - выдача доп. сообщений при создании архива<br>f — создать файл на диске<br>&#x2F;var&#x2F;db&#x2F;mysql&#x2F;* - архивируемые файлы через пробел.</p><p> Как сжать содержимое архива tar?</p><pre><code>tar -cvzf archive.tar.gz /var/db/mysql/*</code></pre><p>Содержимое архива будет сжато при помощи gzip</p><p>Как извлечь содержимое архива tar в текущую папку?</p><pre><code>tar -xf archive.tar - извлечь обычный архив tar в текущую директориюtar -xzf archive.tar.gz - извлечь сжатый архив tar в текущую директорию</code></pre><p>Как извлечь содержимое архива tar в указанную папку?</p><pre><code>tar -xf archive.tar -C /home/data - извлечь обычный архив tar в директорию /home/datatar -xzf archive.tar.gz -C /home/data - извлечь сжатый архив tar в директорию /home/data</code></pre><p>Как исключить файл или папку при архивировании или создании архива tar?<br>Для исключения файлов или папки используется опция –exclude</p><pre><code>tar --exclude=&#39;/home/user/*&#39; -cvzf archive.tar.gz /home/*</code></pre><p>В этом примере архивируем всю директорию &#x2F;home , но исключаем из архива папку &#x2F;home&#x2F;user</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Архиватор Tar в Linux.&lt;br&gt;Архив tar может быть сжат в gzip. Формат тогда будет выглядеть так - tar.gz&lt;/p&gt;
+&lt;p&gt;Как создать архив tar в Free</summary>
+      
+    
+    
+    
+    
+    <category term="tar,debian" scheme="http://localhost/tags/tar-debian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bash</title>
+    <link href="http://localhost/2020/05/02/Bash/"/>
+    <id>http://localhost/2020/05/02/Bash/</id>
+    <published>2020-05-02T00:55:28.000Z</published>
+    <updated>2020-05-02T00:55:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Bash пример</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Bash пример&lt;/p&gt;
+</summary>
+      
+    
+    
+    
     
   </entry>
   

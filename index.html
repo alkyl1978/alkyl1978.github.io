@@ -234,7 +234,11 @@
     <div class="article-meta">
       <a href="/2023/01/22/install-goland/" class="article-date">
   <time datetime="2023-01-22T21:04:33.000Z" itemprop="datePublished">2023-01-22</time>
-</a>    
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/debian/">debian</a>
+  </div>
+   
     </div>
       
     <div class="article-entry" itemprop="articleBody">
@@ -324,6 +328,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/goland/" rel="tag">goland</a></li></ul>
+
     </footer>
   </div>
 
@@ -650,7 +656,7 @@
 
     
     <article
-  id="post-yarn"
+  id="post-Zyxel-kenetic"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -661,8 +667,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/09/13/yarn/"
-    >yarn</a> 
+  <a class="article-title" href="/2020/08/15/Zyxel-kenetic/"
+    >Zyxel kenetic</a> 
 </h2>
  
 
@@ -670,25 +676,21 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/09/13/yarn/" class="article-date">
-  <time datetime="2020-09-13T16:07:18.000Z" itemprop="datePublished">2020-09-13</time>
+      <a href="/2020/08/15/Zyxel-kenetic/" class="article-date">
+  <time datetime="2020-08-15T00:44:17.000Z" itemprop="datePublished">2020-08-15</time>
 </a>    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>скачиваем ключ</p>
-<pre><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-</code></pre>
-<p>добавляем репозитарий</p>
-<pre><code>echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
-</code></pre>
-<p>обновляем репозитарий</p>
-<pre><code>apt-get update
-</code></pre>
-<p>устанавливаем yarn</p>
-<pre><code>apt-get install yarn
-</code></pre>
+  <p>Положите в папку установленного tftp-сервера<br>(в папку программы-сервера)<br>микропрограмму первого поколения V1.00(XXX.X)D0,<br>предназначенную именно для вашего интернет-центра:</p>
+<p>Для восстановления работоспособности Keenetic 4G ревизии А (Rev.A) скачайте архив с микропрограммой: <a target="_blank" rel="noopener" href="https://help.keenetic.net/hc/article_attachments/209440529/Keenetic-4G-V1.00%5BBWO.4.4%5DD0.zip">https://help.keenetic.net/hc/article_attachments/209440529/Keenetic-4G-V1.00%5BBWO.4.4%5DD0.zip</a><br>Для восстановления работоспособности Keenetic 4G ревизии B (Rev.B) скачайте архив с микропрограммой: <a target="_blank" rel="noopener" href="https://help.keenetic.net/hc/article_attachments/209440749/Keenetic-4G-V1.00%5BAABV.1.2%5DD0.zip">https://help.keenetic.net/hc/article_attachments/209440749/Keenetic-4G-V1.00%5BAABV.1.2%5DD0.zip</a><br>Отличия интернет-центров Keenetic 4G ревизии A (Rev.A) и Keenetic 4G ревизии B (Rev.B) представлены в статье: «Отличия интернет-центров Keenetic Lite&#x2F;4G ревизии A (Rev.A) от ревизии B (Rev.B)»<br>Распакуйте его и переименуйте bin-файл из архива в файл с именем rt305x_firmware.bin.<br>Подключите компьютер кабелем Ethernet к одному из LAN-портов Keenetic. На сетевом адаптере компьютера установите вручную IP-адрес 192.168.99.8 с маской подсети 255.255.255.0.</p>
+<ol start="3">
+<li><p>Удерживая кнопку RESET в нажатом состоянии, включите питание интернет-центра.</p>
+</li>
+<li><p>Через 5 секунд после включения отпустите кнопку RESET. Keenetic должен получить с tftp-сервера файл с именем rt305x_firmware.bin и записать его в энергонезависимую память.</p>
+</li>
+</ol>
  
       <!-- reward -->
       
@@ -699,7 +701,7 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/router/" rel="tag">router</a></li></ul>
 
     </footer>
   </div>
@@ -709,7 +711,7 @@
 
     
     <article
-  id="post-openwrt-imagebinder"
+  id="post-zte-modem"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -720,8 +722,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/08/25/openwrt-imagebinder/"
-    >openwrt imagebinder</a> 
+  <a class="article-title" href="/2020/08/13/zte-modem/"
+    >zte modem</a> 
 </h2>
  
 
@@ -729,20 +731,28 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/08/25/openwrt-imagebinder/" class="article-date">
-  <time datetime="2020-08-25T09:43:33.000Z" itemprop="datePublished">2020-08-25</time>
+      <a href="/2020/08/13/zte-modem/" class="article-date">
+  <time datetime="2020-08-13T23:59:13.000Z" itemprop="datePublished">2020-08-13</time>
 </a>    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h6 id="обновляем-пакеты"><a href="#обновляем-пакеты" class="headerlink" title="обновляем пакеты"></a>обновляем пакеты</h6><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo apt update</span><br></code></pre></td></tr></table></figure>
-<h6 id="устанавливаем-нужные-пакеты"><a href="#устанавливаем-нужные-пакеты" class="headerlink" title="устанавливаем нужные пакеты"></a>устанавливаем нужные пакеты</h6><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">sudo apt-<span class="hljs-built_in">get</span> install build-essential libncurses5-<span class="hljs-built_in">dev</span> libncursesw5-<span class="hljs-built_in">dev</span> zlib1g-<span class="hljs-built_in">dev</span> gawk git gettext libssl-<span class="hljs-built_in">dev</span> xsltproc wget unzip python<br></code></pre></td></tr></table></figure>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget &lt;https:<span class="hljs-regexp">//</span>downloads.openwrt.org<span class="hljs-regexp">/releases/</span><span class="hljs-number">18.06</span>.<span class="hljs-number">5</span><span class="hljs-regexp">/targets/</span>ramips<span class="hljs-regexp">/rt305x/</span>openwrt-imagebuilder-<span class="hljs-number">18.06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz&gt;<br></code></pre></td></tr></table></figure>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -xf openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz<br></code></pre></td></tr></table></figure>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">rm</span> openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64.tar.xz<br></code></pre></td></tr></table></figure>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cd</span> openwrt-imagebuilder-<span class="hljs-number">18</span>.<span class="hljs-number">06</span>.<span class="hljs-number">5</span>-ramips-rt305x.Linux-x86_64<br></code></pre></td></tr></table></figure>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">make image <span class="hljs-attribute">PROFILE</span>=nbg-419n -j3<br></code></pre></td></tr></table></figure> 
+  <p>Сначала зачем-то тыкнул эту команду (переводим модем в режим с COM портами и ADB интерфейсом):</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6">http://192.168.8.1/goform/goform_set_cmd_process?goformId=USB_MODE_SWITCH&amp;usb_mode=6</a><br>После ввода вот этой команды потерял связь с модемом по CGI:</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY">http://192.168.8.1/goform/goform_process?goformId=MODE_SWITCH&amp;switchCmd=FACTORY</a></p>
+<h1 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h1><p>[    5.663021] usb 1-1.4: new high-speed USB device number 4 using ehci-pci<br>[    5.797594] usb 1-1.4: New USB device found, idVendor&#x3D;19d2, idProduct&#x3D;0016<br>[    5.797597] usb 1-1.4: New USB device strings: Mfr&#x3D;1, Product&#x3D;2, SerialNumber&#x3D;3<br>[    5.797598] usb 1-1.4: Product: ZTE Wireless Ethernet Adapter<br>[    5.797599] usb 1-1.4: Manufacturer: ZTE,Incorporated<br>[    5.817413] usbcore: registered new interface driver usbserial<br>[    5.817421] usbcore: registered new interface driver usbserial_generic<br>[    5.817426] usbserial: USB Serial support registered for generic<br>[    5.822291] usbcore: registered new interface driver option<br>[    5.822300] usbserial: USB Serial support registered for GSM modem (1-port)<br>[    5.822373] option 1-1.4:1.0: GSM modem (1-port) converter detected<br>[    5.823265] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB0</p>
+<p>От этих вариантов нет эффекта:</p>
+<h1 id="echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-E”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;E” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-8”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;8” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><h1 id="echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0"><a href="#echo-“AT-ZCDRUN-x3D-F”-gt-x2F-dev-x2F-ttyUSB0" class="headerlink" title="echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0"></a>echo “AT+ZCDRUN&#x3D;F” &gt; &#x2F;dev&#x2F;ttyUSB0</h1><p>Еще в окошке «Cетевые соединения» удалил соединение по Ethernet, оно же вроде само восстановится?</p>
+<p>UPD В соседнем окошке терминала нет ответа:</p>
+<p>sudo cat &#x2F;dev&#x2F;ttyUSB0</p>
+<p>sudo rm &#x2F;dev&#x2F;ttyUSB*<br>sudo modprobe -fr option<br>sudo modprobe -fr usbserial<br>sudo modprobe usbserial vendor&#x3D;0x19d2 product&#x3D;0x0016<br>ls &#x2F;dev&#x2F;ttyUSB*<br>Теперь их три штуки:</p>
+<p>&#x2F;dev&#x2F;ttyUSB0  &#x2F;dev&#x2F;ttyUSB1  &#x2F;dev&#x2F;ttyUSB2<br>Но minicom по прежнему не реагирует, перебрал все.</p>
+<p>Помогло! Хотя ответов в minicom не видел, вслепую набирал AT-команды для каждого ttyUSB*</p>
+<p>AT+ZCDRUN&#x3D;8<br>AT+ZCDRUN&#x3D;F<br>Потом перегрузил и случилось чудо! :)</p>
+<h1 id="lsusb"><a href="#lsusb" class="headerlink" title="lsusb"></a>lsusb</h1><p>Bus 002 Device 005: ID [B]19d2:1403[&#x2F;B] ZTE WCDMA Technologies MSM<br>1403 - Modem mode. RNDIS + Mass Storage Device.</p>
+<p>Вернулся в первоначальное состояние.</p>
+ 
       <!-- reward -->
       
     </div>
@@ -752,8 +762,6 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/" rel="tag">openwrt</a></li></ul>
-
     </footer>
   </div>
 
