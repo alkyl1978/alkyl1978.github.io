@@ -125,3 +125,11 @@ readmeConfig:
   postsHeader: '## My posts' # headers, support markdown
   sort: 'desc' # posts display sort: 'desc' or 'acs'. The default option is 'desc'
   groupType: 'month' # 'month' or 'year' or 'none'. The default option is 'month'
+
+auto_category:
+ enable: true
+ depth: 
+
+category_generator:
+  per_page: 10
+  order_by: -date
