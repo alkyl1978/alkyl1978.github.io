@@ -79,12 +79,12 @@ steps:
       region: ru-central1
       mount: 'node_modules'
   - name: gitea_release
-  image: plugins/gitea-release
-  settings:
-    api_key:
-       from_secret: gitea_key
-    base_url: https://git.lp76.ru
-    files: public/README.md
+    image: plugins/gitea-release
+    settings:
+      api_key:
+        from_secret: gitea_key
+      base_url: https://git.lp76.ru
+      files: public/README.md
   - name: telegram
     image: appleboy/drone-telegram
     settings:
