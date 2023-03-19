@@ -34,6 +34,7 @@
     "hexo-server": "^3.0.0",
     "hexo-tag-youtube-responsive": "^0.4.2",
     "hexo-wordcount": "^6.0.1",
+    "hexo-yam": "^8.0.0",
     "lodash": "^4.17.21",
     "write-good": "^1.0.8"
   },

@@ -143,3 +143,15 @@ robotstxt:
 youtuber:
   allowfullscreen: yes,
   autoplay: 1
+
+minify:
+  enable: true
+  html:
+  css:
+  js:
+  svg:
+  gzip:
+  xml:
+  json:
+  brotli:
+    enable: false
