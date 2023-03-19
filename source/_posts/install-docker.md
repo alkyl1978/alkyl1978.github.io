@@ -2,6 +2,10 @@ title: install docker
 author: aleks kylikov
 date: 2023-01-23 18:12:49
 tags:
+ - docker
+categories:
+- docker
+- debian
 ---
 #### Установка Docker в Debian 11
 

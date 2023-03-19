@@ -129,3 +129,11 @@ deploy:
   repo: ssh://git@github.com:22/alkyl1978/alkyl1978.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
+
+auto_category:
+ enable: true
+ depth: 
+
+category_generator:
+  per_page: 10
+  order_by: -date
