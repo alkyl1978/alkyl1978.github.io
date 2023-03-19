@@ -32,7 +32,9 @@
     "hexo-renderer-marked": "^6.0.0",
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
+    "hexo-tag-youtube-responsive": "^0.4.2",
     "hexo-wordcount": "^6.0.1",
+    "lodash": "^4.17.21",
     "write-good": "^1.0.8"
   },
   "devDependencies": {

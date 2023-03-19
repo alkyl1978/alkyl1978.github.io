@@ -64,7 +64,7 @@ highlight:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 1
   order_by: -date
 
 # Category & Tag
@@ -85,10 +85,6 @@ time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
 updated_option: date
 
-# Pagination
-## Set per_page to 0 to disable pagination
-per_page: 10
-pagination_dir: page
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
@@ -104,18 +100,7 @@ search:
 
 rss: /atom.xml
 
-leancloud:
-  enable: false
-  app_id: #
-  app_key: #
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
-#theme: landscape
-#theme: ocean
-#theme: Cxo
-#theme: card
-#theme: ayelee
+
 theme: ayer
 
 # Deployment
