@@ -29,7 +29,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>бекап инкриментный |  Записки на память</title>
+      <title>yarn |  Записки на память</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -74,7 +74,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-bekap"
+  id="post-yarn"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -85,7 +85,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  бекап инкриментный
+  yarn
 </h1>
  
 
@@ -93,15 +93,19 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/01/09/bekap/" class="article-date">
-  <time datetime="2021-01-09T00:00:00.000Z" itemprop="datePublished">2021-01-09</time>
-</a>   
+      <a href="/2020/09/13/yarn/" class="article-date">
+  <time datetime="2020-09-13T16:07:18.000Z" itemprop="datePublished">2020-09-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Количество слов:</span>
-            <span class="post-count">791</span>
+            <span class="post-count">48</span>
         </span>
     </span>
 
@@ -110,7 +114,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Время чтения≈</span>
-            <span class="post-count">4 минут</span>
+            <span class="post-count">1 минут</span>
         </span>
     </span>
 </div>
@@ -123,34 +127,18 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Инкрементный бэкап расшаренного каталога.<br>Есть 2 типа админов: те, кто ещё не делают бэкапы, и те, кто уже делают :-) .<br>Алгоритм работы ниже приведенного скрипта примерно такой. Первого числа каждого месяца делается полный бэкап. При этом предыдущий полный бэкап и дневные бекапы переименовываются добавлением в конец .1 , а еще более старые - удаляются. В остальные дни месяца делается только бэкап изменений, т.е. инкрементный бэкап.<br>Скрипт бэкапа:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br><span class="hljs-comment">#!/bin/bash</span><br><span class="hljs-comment"># имя и расположение программы tar</span><br>TAR=/bin/tar<br><span class="hljs-comment"># Тип архиватора и расширение. Выбрать либо gzip, либо bzip2</span><br><span class="hljs-comment">#gzip</span><br>arch_type=<span class="hljs-string">&quot;--gzip&quot;</span><br>arch_extension=gz<br><span class="hljs-comment">#bzip</span><br><span class="hljs-comment">#arch_type=&quot;--bzip2&quot;</span><br><span class="hljs-comment">#arch_extension=bz2</span><br><span class="hljs-comment"># pwd - текущий рабочий каталог</span><br>SCRIPT_DIR=`<span class="hljs-built_in">pwd</span>`<br><span class="hljs-comment"># Что бекапим</span><br>DIR_SOURCE=<span class="hljs-string">&quot;/home/share&quot;</span><br><span class="hljs-comment"># Лог-файл</span><br>LOG=<span class="hljs-string">&quot;/var/log/archive.log&quot;</span><br><span class="hljs-comment"># Где храним бекапы. В данном случае кидаются в монтируемую (см. ниже) расшаренную папку компьютера под виндовс.</span><br>DIR_TARGET_MONTH=<span class="hljs-string">&quot;/mnt/month&quot;</span><br>DIR_TARGET_DAY=<span class="hljs-string">&quot;/mnt/day&quot;</span><br><span class="hljs-comment">#Файлы инкримента</span><br>increment=<span class="hljs-string">&quot;/mnt/increment.inc&quot;</span><br>increment_day=<span class="hljs-string">&quot;/mnt/increment_day.inc&quot;</span><br>PATH=/usr/local/bin:/usr/bin:/bin<br><span class="hljs-comment"># текущее число</span><br>DOM=`<span class="hljs-built_in">date</span> +%d`<br><span class="hljs-comment"># монтируем шару</span><br><span class="hljs-keyword">if</span> smbmount //192.168.2.100/backup /mnt -o username=admin,password=1234<br><span class="hljs-keyword">then</span><br><span class="hljs-keyword">if</span> [ <span class="hljs-variable">$DOM</span> = <span class="hljs-string">&quot;01&quot;</span> ]; <span class="hljs-keyword">then</span><br><span class="hljs-comment"># если первое число - делаем полный бэкап, предварительно переименовав предыдущий месячный бэкап, и удалив его инкремент</span><br><span class="hljs-built_in">mv</span> <span class="hljs-variable">$DIR_TARGET_MONTH</span>/full.tar.<span class="hljs-variable">$arch_extension</span> <span class="hljs-variable">$DIR_TARGET_MONTH</span>/full.tar.<span class="hljs-variable">$arch_extension</span>.1<br><span class="hljs-built_in">rm</span> <span class="hljs-variable">$increment</span><br><span class="hljs-variable">$TAR</span> --create --ignore-failed-read --one-file-system --recursion --preserve-permissions --sparse --listed-incremental=<span class="hljs-variable">$increment</span> <span class="hljs-variable">$arch_type</span> --verbose --file=<span class="hljs-variable">$DIR_TARGET_MONTH</span>/full.tar.<span class="hljs-variable">$arch_extension</span> <span class="hljs-variable">$DIR_SOURCE</span><br><span class="hljs-comment"># переименовываем дневные инкрементные бэкапы, старые бекапы удаляем.</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $( find <span class="hljs-variable">$DIR_TARGET_DAY</span>/ -name <span class="hljs-string">&quot;*tar.<span class="hljs-variable">$arch_extension</span>.1&quot;</span> ); <span class="hljs-keyword">do</span> <span class="hljs-built_in">rm</span> -f <span class="hljs-variable">$i</span>; <span class="hljs-keyword">done</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $( find <span class="hljs-variable">$DIR_TARGET_DAY</span>/ -name <span class="hljs-string">&quot;*tar.<span class="hljs-variable">$arch_extension</span>&quot;</span> ); <span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> <span class="hljs-variable">$i</span> <span class="hljs-variable">$i</span>.1; <span class="hljs-keyword">done</span><br><span class="hljs-keyword">else</span><br><span class="hljs-comment">#если не первое число - делаем инкрементные (только изменения) дневные бекапы</span><br><span class="hljs-built_in">cp</span> <span class="hljs-variable">$increment</span> <span class="hljs-variable">$increment_day</span><br><span class="hljs-variable">$TAR</span> --create --ignore-failed-read --one-file-system --recursion --preserve-permissions --sparse --listed-incremental=<span class="hljs-variable">$increment_day</span> <span class="hljs-variable">$arch_type</span> --verbose --file <span class="hljs-variable">$DIR_TARGET_DAY</span>/day<span class="hljs-variable">$DOM</span>.tar.<span class="hljs-variable">$arch_extension</span> <span class="hljs-variable">$DIR_SOURCE</span><br><span class="hljs-keyword">fi</span><br>umount /mnt<br><span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(date +%F_%R:%S)</span> Ошибка монтирования шары&quot;</span> &gt;&gt; <span class="hljs-variable">$LOG</span><br><span class="hljs-keyword">fi</span><br><br></code></pre></td></tr></table></figure>
-
-<p>А теперь подробнее о ключах tar, с которыми делается бэкап.</p>
-<p>–create - говорит, что мы создаем архив</p>
-<p>–ignore-failed-read - игнорируем файлы, которые не удалось прочитать, вместо останова с ошибкой - бэкап обычно идет автоматически, и лишние сбои бэкапа нам ни к чему.</p>
-<p>–one-file-system - запрещает бэкапу выходить за пределы файловой системы</p>
-<p>–recursion - мы выполняем бэкап всех файлов и каталогов по указанному пути, а также всех файлов и каталогов всех подкаталогов (рекурсия).</p>
-<p>–preserve-permissions - эта опция говорит архиватору, что мы хотим сохранить все права на сохраняемые файлы.</p>
-<p>–sparse - файлы с наличием “пустот” сохраняем именно с указанием мест и длин пустот, а не как файлы с огромным набором нулей.</p>
-<p>–listed-incremental&#x3D;файл_метаданных Суть в следующем:</p>
-<ol>
-<li>Если указанного файла не существует - выполняется полный бэкап, а сам файл - создается и заполняется.</li>
-<li>Если указанный файл существует - выполняется инкрементальный бэкап от момента, определяемого файлом, а сам файл - обновляется.</li>
-</ol>
-<p>–verbose - вывод подробной информации о процессе - если запускаете вручную, а не планировщиком cron.</p>
-<p>–file&#x3D;файл_бэкапа - этот параметр указывает путь к создаваемому файлу бэкапа.</p>
-<p>Восстановление бэкапа.</p>
-<p>Вот команда для развертывания бэкапа:</p>
-<p>&#x2F;bin&#x2F;tar –extract –ignore-failed-read –preserve-permissions –listed-incremental&#x3D;&#x2F;dev&#x2F;null –recursion –sparse –verbose –gzip –file&#x3D;файл_бэкапа –directory&#x3D;путь_для_развертывания</p>
-<p>Сначала восстанавливается полный месячный бэкап, а уже поверх его в туже дирректорию - бэкап нужного дня.</p>
-<p>–extract - говорит о том, что мы разворачиваем архив.</p>
-<p>–directory&#x3D;путь_для_развертывания - путь, куда восстанавливаются файлы. Допустим, мы бэкапили каталог &#x2F;www&#x2F;users. Можно предположить, что при восстановлении надо указать тоже &#x2F;www&#x2F;users. Но дело в том, что в бэкапе сохраняются полные пути без лидирующего слеша (&#x2F;). Т.е. все пути сохранились, как www&#x2F;users&#x2F;*. Поэтому если мы укажем здесь &#x2F;www&#x2F;users - все развернется, как &#x2F;www&#x2F;users&#x2F;www&#x2F;users. В нашем случае достаточно просто указать &#x2F; .</p>
-<p>–listed-incremental&#x3D;&#x2F;dev&#x2F;null - заметьте, как изменился параметр. При восстановлении файл метаданных роли не играет, однако имя файла все равно требуется. Поэтому мы указываем &#x2F;dev&#x2F;null .</p>
-<p>Восстановление одной папки из архива:</p>
-<p>&#x2F;bin&#x2F;tar –extract –ignore-failed-read –preserve-permissions –listed-incremental&#x3D;&#x2F;dev&#x2F;null –recursion –sparse –verbose –gzip –file&#x3D;full.tar.gz –directory&#x3D;&#x2F;mnt&#x2F;10.10.10.22&#x2F;backup&#x2F;10.10.10.4&#x2F;mail&#x2F; home&#x2F;vmail&#x2F;pskovholod.ru&#x2F;zakup_vl&#x2F;</p>
-<p>&#x2F;bin&#x2F;tar –extract –ignore-failed-read –preserve-permissions –listed-incremental&#x3D;&#x2F;dev&#x2F;null –recursion –sparse –verbose –gzip –file&#x3D;day26.tar.gz –directory&#x3D;&#x2F;mnt&#x2F;10.10.10.22&#x2F;backup&#x2F;10.10.10.4&#x2F;mail&#x2F; home&#x2F;vmail&#x2F;pskovholod.ru&#x2F;zakup_vl&#x2F;</p>
-<p>На сервачке с двухядерным процессором и 6Гб оперативной памяти полный бэкап шары в 55 Гб занимает около двух часов, примерно столько же и восстановление.</p>
+  <p>скачиваем ключ</p>
+<pre><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+</code></pre>
+<p>добавляем репозитарий</p>
+<pre><code>echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list
+</code></pre>
+<p>обновляем репозитарий</p>
+<pre><code>apt-get update
+</code></pre>
+<p>устанавливаем yarn</p>
+<pre><code>apt-get install yarn
+</code></pre>
  
       <!-- reward -->
       
@@ -197,12 +185,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3ay46DMAwFUP7/p5ltpQrmOsYZRjpZVWmBQxdW/DiOeJ0f63vnav9q53P/mFi4uLht7nm7vm+99vj73ycGXFzc/dz7B5zBur82CYvJS+Li4r6ZmwevaqDExcX9X9z8iNMPdri4uG/gJoEmP6wkoWo8V8PFxW1w8yrl3OeR+i4uLu4S91xaeeHj4efi4uJu4VaDTrVZ0umQXv4duLi4w9ykbJF/m/+mmkQtgnBxcdvc8sVBAzUJT4X2DC4u7kZufnE+VHHfGllrzODi4u7k5tDqTj90HvmpChcX91Hu2ghFP2XK93FxcfdzJxCdpks0J4KLizvMzcsZ1eGJamPml5fExcXdwu2MZ+X1zOoRJ0micHFx57hJeGqVOJ89meDi4m7h3oenTou02pgpHGtwcXGHuf0Qln+bl1cKuRouLu4AN09a8tQoGb+o3gcXF3cn9yyuvDgyUorFxcXdwl0LUmsF02qq00Lj4uK2uXnwyg8u+etVn4WLi7uTmw9PdMLcWvKDi4v7Zm51nKLfrH2s84OLizvGXWvB9u+Mi4v7V9w8+SmnK8WGa2GaDBcXd4ybF0zzZCY/4lTbtLi4uMPcH1jjJQtXq6ggAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABuklEQVR42u3aQW7FIAwFwNz/0ukJiJ4NcdNqWH1FfJhkYdmG64rHvRirOc/PVzOPDVxc3G3u/Tiet+yts/qdfBRcXNxJ7ipiPOOS+b31l89xcXE/zE1yj2QmLi7u/+Dmr5EkNLi4uF/mVouWvKnxXOS8WKvh4uJucHtbnv39Sn8XFxe3xb2LYz9s7QxcXNwZ7n7L41RTNW+g4OLiznPzw9Ro6SDYlRuvuLi4g9zq1Yo8oUkQ+Tq4uLhvc/NWZt7urAbHggEXF3eE20tEqschzfhaPbbBxcU9xK0Gl971i2pgWs7ExcUd4eZXK3aSj7wEijy4uLi/xM2zobwQ2rn4hYuLO8k92+bIA2L1NXBxcSe5ScDKn9/BOHAci4uLO87N2x+9I5DeLstAhouLO87tXc7YSYkKtRouLu4IN79S2Utreg3WK8+tcHFxD3Hv4jj2heJjFVxc3HluPnr3vKrlU74vLi7u29xe8EqaoXnbNF8fFxd3kpuHoV7qs3N8gouL+xe5vYZI8q9CXYWLi/sZ7k77NS94jgUyXFzcInfnKlU15FWvYuDi4s5z84Zp3hbplUzVz4SLi/sC9wcLtEjnu8S/ugAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bekap/" rel="tag">bekap</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yarn/" rel="tag">yarn</a></li></ul>
 
     </footer>
   </div>
@@ -210,19 +198,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/01/28/aws-yandex/" class="article-nav-link">
+      <a href="/2021/01/09/bekap/" class="article-nav-link">
         <strong class="article-nav-caption">Предыдущая запись</strong>
         <div class="article-nav-title">
           
-            применение aws в яндекс облаке
+            бекап инкриментный
           
         </div>
       </a>
     
     
-      <a href="/2020/09/13/yarn/" class="article-nav-link">
+      <a href="/2020/08/25/openwrt-imagebinder/" class="article-nav-link">
         <strong class="article-nav-caption">Следующая запись</strong>
-        <div class="article-nav-title">yarn</div>
+        <div class="article-nav-title">openwrt imagebinder</div>
       </a>
     
   </nav>

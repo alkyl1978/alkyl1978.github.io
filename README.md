@@ -13,7 +13,12 @@
 - 2021-01-09 [бекап инкриментный](http://localhost/2021/01/09/bekap/)  
   
   
-### **2020-08** (2)  
+### **2020-09** (1)  
+- 2020-09-13 [yarn](http://localhost/2020/09/13/yarn/)  
+  
+  
+### **2020-08** (3)  
+- 2020-08-25 [openwrt imagebinder](http://localhost/2020/08/25/openwrt-imagebinder/)  
 - 2020-08-15 [Zyxel kenetic](http://localhost/2020/08/15/Zyxel-kenetic/)  
 - 2020-08-13 [zte modem](http://localhost/2020/08/13/zte-modem/)  
   
