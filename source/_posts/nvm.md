@@ -3,6 +3,9 @@ layout: node
 title: nvm
 date: 2020-07-07 23:31:10
 tags:
+- nodejs
+categories:
+- nodejs
 ---
 Как установить и управлять NodeJS с помощью NVM
 

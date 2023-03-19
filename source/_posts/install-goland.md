@@ -2,6 +2,9 @@ title: install goland
 author: aleks kylikov
 date: 2023-01-22 21:04:33
 tags:
+- goland
+categories:
+- debian
 ---
  **Как установить Go на Debian 10**
  

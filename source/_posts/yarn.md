@@ -1,6 +1,10 @@
 title: yarn
-tags: nodejs
 date: 2020-09-13 16:07:18
+tags:
+- nodejs
+- yarn
+categories:
+- nodejs
 ---
 скачиваем ключ
 

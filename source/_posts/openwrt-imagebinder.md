@@ -1,6 +1,9 @@
 title: openwrt imagebinder
-tags: openwrt
 date: 2020-08-25 09:43:33
+tags:
+- openwrt
+categories:
+- openwrt
 ---
 ###### обновляем пакеты
 ```
