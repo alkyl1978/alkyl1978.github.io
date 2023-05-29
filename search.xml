@@ -46,7 +46,7 @@
   }
   </style>
 
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/RrmBc-Cl3II?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/RrmBc-Cl3II?autoplay=0%2C" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
 
 <style>.embed-container {
     position: relative;
@@ -64,7 +64,7 @@
   }
   </style>
 
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/tDFA7jY76cY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/tDFA7jY76cY?autoplay=0%2C" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
 
 <style>.embed-container {
     position: relative;
@@ -82,7 +82,7 @@
   }
   </style>
 
-<div class="embed-container"><iframe src="https://www.youtube.com/embed/-kxPd_upmgs?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/-kxPd_upmgs?autoplay=0%2C" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
 
 ]]></content>
       <categories>
