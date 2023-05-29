@@ -27,6 +27,8 @@ steps:
     commands: 
     - rm _config.yml
     - mv _config_github.yml _config.yml
+    - rm _config.ayer.yml
+    - mv _config.ayer_github.yml _config.ayer.yml
     - chmod +x ./bin/run.sh
     - ./bin/run.sh
   - name: push gh-pages
@@ -43,6 +45,8 @@ steps:
     commands:
     - rm _config.yml
     - mv _config_site.yml _config.yml
+    - rm _config.ayer.yml
+    - mv _config.ayer_site.yml _config.ayer.yml
     - ./bin/run.sh
   - name: docker
     image: plugins/docker

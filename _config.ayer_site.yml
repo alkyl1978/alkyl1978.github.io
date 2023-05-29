@@ -14,7 +14,7 @@ share_eng: false
 
 toc: true
 
-yandex_analytics: false
+yandex_analytics: true
 
 lock:
   enable: false
