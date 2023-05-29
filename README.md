@@ -3,6 +3,11 @@
 - 2023-05-29 [JQuery плагин встраивания содержимого с Яндекс.Диска](http://localhost/2023/05/29/JQuery-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%B2%D1%81%D1%82%D1%80%D0%B0%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B3%D0%BE-%D1%81-%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%94%D0%B8%D1%81%D0%BA%D0%B0/)  
   
   
+### **2023-03** (2)  
+- 2023-03-25 [Как установить Flatpak](http://localhost/2023/03/25/install-flatpak/)  
+- 2023-03-19 [Видео по изготовление печатных плат cnc3018](http://localhost/2023/03/19/cnc3018/)  
+  
+  
 ### **2023-01** (6)  
 - 2023-01-23 [install docker](http://localhost/2023/01/23/install-docker/)  
 - 2023-01-22 [install goland](http://localhost/2023/01/22/install-goland/)  

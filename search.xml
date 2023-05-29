@@ -21,6 +21,80 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Как установить Flatpak</title>
+    <url>/2023/03/25/install-flatpak/</url>
+    <content><![CDATA[<p>Flatpak - это тоже относительно новая система технология портативных приложений, поддерживаемых в любом дистрибутиве, созданная командой разработчиков GNOME. Раньше этот формат пакетов назывался XDG, но потом был переименован во избежание конфликтов. Он разработан, чтобы изолировать приложения от вашей системы и один от другого. Работает все больше похоже на Snap чем на AppImage. Приложение тоже выполняется в изолированном контейнере, что обеспечивает максимальную безопасность. Но подход к библиотекам здесь немного отличается. Они могут находиться в одном пакете вместе с приложением, или же находится в окружениях, общих для нескольких пакетов, такой подход гибче чем snap, и позволяет программе занимать не так много места.</p>
+<p>В отличие от Snap, Flatpak ориентирован больше на децентрализацию. Здесь нет одного центрального репозитория или контролирующего органа. Snap пакеты контролируются Canonical, и чтобы добавить свой пакет в репозиторий нужно подписать соглашение. Flatpak работает подобно тому, как PPA в Ubuntu. Вы находите репозиторий, подключаете в систему и можете устанавливать оттуда программы.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Видео по изготовление печатных плат cnc3018</title>
+    <url>/2023/03/19/cnc3018/</url>
+    <content><![CDATA[<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/RrmBc-Cl3II?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/tDFA7jY76cY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/-kxPd_upmgs?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+]]></content>
+      <categories>
+        <category>cnc3018 </category>
+        <category>печатная плата</category>
+      </categories>
+      <tags>
+        <tag>cnc3018</tag>
+        <tag>видео</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>install docker</title>
     <url>/2023/01/23/install-docker/</url>
     <content><![CDATA[<h4 id="Установка-Docker-в-Debian-11"><a href="#Установка-Docker-в-Debian-11" class="headerlink" title="Установка Docker в Debian 11"></a>Установка Docker в Debian 11</h4><p>Docker - одна из самых популярных программ для контейнеризации. В терминологии Docker, контейнеры – это стандартная единица программного обеспечения, которая упаковывает код и все его зависимости, для того чтобы приложение можно было быстро и надежно запустить на разных операционных системах и в разных вычислительных средах.</p>
