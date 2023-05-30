@@ -6,7 +6,7 @@
   <link href="http://localhost/atom.xml" rel="self"/>
   
   <link href="http://localhost/"/>
-  <updated>2023-05-29T09:42:48.000Z</updated>
+  <updated>2023-05-30T20:58:00.000Z</updated>
   <id>http://localhost/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Схема модуля реле на 4 канала</title>
+    <link href="http://localhost/2023/05/30/rele/"/>
+    <id>http://localhost/2023/05/30/rele/</id>
+    <published>2023-05-30T20:58:00.000Z</published>
+    <updated>2023-05-30T20:58:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Модуль реле 4 канальное схема</p><img src="/2023/05/30/rele/rele.jpg" class="" title="rele">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Модуль реле 4 канальное схема&lt;/p&gt;
+&lt;img src=&quot;/2023/05/30/rele/rele.jpg&quot; class=&quot;&quot; title=&quot;rele&quot;&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>JQuery плагин встраивания содержимого с Яндекс.Диска</title>
@@ -451,29 +472,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>lm4f tiva</title>
-    <link href="http://localhost/2020/07/02/lm4f-tiva/"/>
-    <id>http://localhost/2020/07/02/lm4f-tiva/</id>
-    <published>2020-07-02T18:30:00.000Z</published>
-    <updated>2020-07-02T18:30:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Плата разработки на arm</p><img src="/2020/07/02/lm4f-tiva/LM4F120.jpg" class="" title="lm4f-tiva">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Плата разработки на arm&lt;/p&gt;
-&lt;img src=&quot;/2020/07/02/lm4f-tiva/LM4F120.jpg&quot; class=&quot;&quot; title=&quot;lm4f-tiva&quot;&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="arm" scheme="http://localhost/tags/arm/"/>
     
   </entry>
   
