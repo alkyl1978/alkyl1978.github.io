@@ -1,4 +1,4 @@
-title: rele
+title: Схема модуля реле на 4 канала
 author: aleks kylikov
 tags: []
 categories: []
