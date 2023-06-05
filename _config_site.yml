@@ -97,6 +97,10 @@ search:
   field: post
   format: html
 
+# Local search
+local_search:
+enable: true
+
 rss: /atom.xml
 
 theme: ayer
