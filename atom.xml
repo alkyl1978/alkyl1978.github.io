@@ -6,7 +6,7 @@
   <link href="http://localhost/atom.xml" rel="self"/>
   
   <link href="http://localhost/"/>
-  <updated>2023-05-30T20:58:00.000Z</updated>
+  <updated>2023-06-05T15:54:33.000Z</updated>
   <id>http://localhost/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Схема модуля i2c для подключения LCD</title>
+    <link href="http://localhost/2023/06/05/i2clcd/"/>
+    <id>http://localhost/2023/06/05/i2clcd/</id>
+    <published>2023-06-05T15:54:33.000Z</published>
+    <updated>2023-06-05T15:54:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2023/06/05/i2clcd/i2clcd.jpg" class="" title="схема модуля">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;img src=&quot;/2023/06/05/i2clcd/i2clcd.jpg&quot; class=&quot;&quot; title=&quot;схема модуля&quot;&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Схема модуля реле на 1 канала.</title>
@@ -452,26 +472,6 @@
     
     
     <category term="nodejs" scheme="http://localhost/tags/nodejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>rs-local</title>
-    <link href="http://localhost/2020/07/07/rs-local/"/>
-    <id>http://localhost/2020/07/07/rs-local/</id>
-    <published>2020-07-07T23:28:56.000Z</published>
-    <updated>2020-07-07T23:28:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>В последних версиях Debian выпилили файл rc.local, который позволяет выполнять произвольные скрипты при запуске системы.<br>Данное решение очень удобно, поэтому запилим его обратно.</p><p>Создадим файл сервиса:</p><pre><code>sudo nano /etc/systemd/system/rc-local.service</code></pre><p>Со следующим содержимым:</p><pre><code>[Unit]Description=/etc/rc.localConditionPathExists=/etc/rc.local[Service]Type=forkingExecStart=/etc/rc.local startTimeoutSec=0StandardOutput=ttyRemainAfterExit=yesSysVStartPriority=99 [Install]WantedBy=multi-user.target</code></pre><p>Создадим сам rc.local:</p><pre><code>sudo nano /etc/rc.local#!/bin/sh -e## rc.local## This script is executed at the end of each multiuser runlevel.# Make sure that the script will &quot;exit 0&quot; on success or any other# value on error.## In order to enable or disable this script just change the execution# bits.## By default this script does nothing.exit 0</code></pre><p>Добавим права на выполнение:</p><pre><code>sudo chmod +x /etc/rc.local</code></pre><p>Добавим сервис в автозапуск:</p><pre><code>sudo systemctl enable rc-local</code></pre><p>Запускаем сервис:</p><pre><code>sudo systemctl start rc-local</code></pre><p>Смотрим состояние сервиса:</p><pre><code>sudo systemctl status rc-local</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;В последних версиях Debian выпилили файл rc.local, который позволяет выполнять произвольные скрипты при запуске системы.&lt;br&gt;Данное решени</summary>
-      
-    
-    
-    
     
   </entry>
   

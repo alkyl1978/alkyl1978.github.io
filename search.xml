@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Схема модуля i2c для подключения LCD</title>
+    <url>/2023/06/05/i2clcd/</url>
+    <content><![CDATA[<img src="/2023/06/05/i2clcd/i2clcd.jpg" class="" title="схема модуля">]]></content>
+  </entry>
+  <entry>
     <title>Схема модуля реле на 1 канала.</title>
     <url>/2023/05/30/rele/</url>
     <content><![CDATA[<p>Модуль реле 1 канальное схема.<br>Схемы на 4 или 8 аналогичны.</p>
