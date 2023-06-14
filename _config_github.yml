@@ -127,8 +127,9 @@ plugins:
 - hexo-generator-robotstxt
 
 robotstxt:
-  useragent: "*"
-  sitemap: /sitemap.xml
+ useragent: "YandexBot,Googlebot,Mail.ru,Rambler Bot"
+  sitemap: https://alkyl1978.github.io/sitemap.xml
+  Host: alkyl1978.github.io
 
 youtuber:
   allowfullscreen: yes,

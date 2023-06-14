@@ -137,8 +137,9 @@ plugins:
 - hexo-generator-robotstxt
 
 robotstxt:
-  useragent: "*"
-  sitemap: /sitemap.xml
+  useragent: "YandexBot,Googlebot,Mail.ru,Rambler Bot"
+  sitemap: http://localhost/sitemap.xml
+  Host: localhost
 
 youtuber:
   allowfullscreen: yes,
