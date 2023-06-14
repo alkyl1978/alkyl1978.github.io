@@ -126,8 +126,8 @@ plugins:
 
 robotstxt:
   useragent: "YandexBot,Googlebot,Mail.ru,Rambler Bot"
-  sitemap: https://lp76.ru/sitemap.xml
-  Host: lp76.ru
+  sitemap: "https://lp76.ru/sitemap.xml"
+  Host: "lp76.ru"
   
 youtuber:
   allowfullscreen: yes,

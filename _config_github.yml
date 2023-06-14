@@ -128,8 +128,8 @@ plugins:
 
 robotstxt:
  useragent: "YandexBot,Googlebot,Mail.ru,Rambler Bot"
-  sitemap: "https://alkyl1978.github.io/sitemap.xml"
-  Host: "alkyl1978.github.io"
+ sitemap: "https://alkyl1978.github.io/sitemap.xml"
+ Host: "alkyl1978.github.io"
 
 youtuber:
   allowfullscreen: yes,
