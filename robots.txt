@@ -1,2 +1,2 @@
-User-agent: *
-Sitemap: /sitemap.xml
+User-agent: YandexBot,Googlebot,Mail.ru,Rambler Bot
+Sitemap: http://localhost/sitemap.xml
