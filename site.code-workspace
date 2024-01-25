@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../hexo-theme-ayer"
-		},
-		{
-			"path": "../hexo-action"
 		}
 	],
 	"settings": {}
